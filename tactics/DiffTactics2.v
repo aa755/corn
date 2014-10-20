@@ -34,7 +34,7 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *)
 
-(* begin hide *)
+(** begin hide *)
 Require Export Differentiability.
 
 Section Automatizing_Continuity.
@@ -354,4 +354,4 @@ Ltac Deriv_I_substR :=
       let t := derivative_of X1 in
       apply Derivative_I_wdr with t
   end.
-(* end hide *)
+(** end hide *)

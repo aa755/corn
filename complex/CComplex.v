@@ -378,9 +378,9 @@ Qed.
 
 End Complex_Numbers.
 
-(* begin hide *)
+(** begin hide *)
 Notation CCX := (cpoly_cring CC).
-(* end hide *)
+(** end hide *)
 
 Definition II : CC := cc_i.
 

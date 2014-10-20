@@ -183,9 +183,9 @@ Proof.
  intros [H0 [H1 H2]] [H3 [H4 H5]].
  repeat split; [rewrite H0 | |]; eauto.
 Qed.
-(* begin hide *)
+(** begin hide *)
 Hint Resolve StepF_Qeq_refl StepF_Qeq_sym StepF_Qeq_trans.
-(* end hide *)
+(** end hide *)
 (** [Mirror] behaves well with respect to this equality *)
 Lemma Mirror_resp_Qeq : forall (s t:StepF), StepF_Qeq s t -> StepF_Qeq (Mirror s) (Mirror t).
 Proof.
@@ -196,9 +196,9 @@ Proof.
   apply IHs2; assumption.
  apply IHs1; assumption.
 Qed.
-(* begin hide *)
+(** begin hide *)
 Hint Resolve Mirror_resp_Qeq.
-(* end hide *)
+(** end hide *)
 Lemma MirrorMirror : forall (s:StepF), (StepF_Qeq (Mirror (Mirror s)) s).
 Proof.
  induction s.
@@ -206,9 +206,9 @@ Proof.
  repeat split; auto with *.
  simpl; ring.
 Qed.
-(* begin hide *)
+(** begin hide *)
 Hint Resolve MirrorMirror.
-(* end hide *)
+(** end hide *)
 (** Splits interacts with Mirror in the way you expect *)
 Lemma SplitR_resp_Qeq : forall (s t:StepF) (a b:OpenUnit), a == b -> StepF_Qeq s t -> StepF_Qeq (SplitR s a) (SplitR t b).
 Proof.
@@ -219,9 +219,9 @@ Proof.
      |elim (Qlt_not_le _ _ Hbo); rewrite <- Hab; rewrite <- Ho; try rewrite -> Hao; auto with *];
        try apply IHs1; try apply IHs2; auto with *; simpl; try (rewrite -> Hab; rewrite -> Ho; reflexivity).
 Qed.
-(* begin hide *)
+(** begin hide *)
 Hint Resolve SplitR_resp_Qeq.
-(* end hide *)
+(** end hide *)
 Lemma MirrorSplitL_Qeq : forall (s:StepF) (a b:OpenUnit), b == (OpenUnitDual a) -> (StepF_Qeq (Mirror (SplitL s a)) (SplitR (Mirror s) b)).
 Proof.
  induction s.
@@ -301,9 +301,9 @@ Proof.
  apply StepF_Qeq_sym.
  apply MirrorSplitL_Qeq; auto with *.
 Qed.
-(* begin hide *)
+(** begin hide *)
 Hint Resolve SplitL_resp_Qeq.
-(* end hide *)
+(** end hide *)
 (** The following three lemmas are the key lemmas about Splits.  They
 characterise how Splits distribute across each other. *)
 Lemma SplitLSplitL : forall (s:StepF) (a b c:OpenUnit), (a*b==c) ->
@@ -584,13 +584,13 @@ Proof.
 Qed.
 
 End StepFunction.
-(* begin hide *)
+(** begin hide *)
 Add Parametric Relation X : (StepF X) (@StepF_Qeq X)
  reflexivity proved by (@StepF_Qeq_refl X)
  symmetry proved by (@StepF_Qeq_sym X)
  transitivity proved by (@StepF_Qeq_trans X)
  as StepF_Qeq_Setoid.
-(* end hide *)
+(** end hide *)
 (** Step functions are a functor *)
 Definition Map(X Y:Type):(X->Y)->(StepF X)->(StepF Y).
 Proof.
@@ -656,11 +656,11 @@ Proof.
  apply IHx2; auto with *.
  apply SplitR_resp_Qeq; auto with *.
 Qed.
-(* end hide *)
+(** end hide *)
 Section Ap.
-(* begin hide *)
+(** begin hide *)
 Hint Resolve StepF_Qeq_refl SplitL_resp_Qeq SplitR_resp_Qeq.
-(* end hide *)
+(** end hide *)
 (** Splits commute with maps *)
 Lemma SplitMap (X Y:Type):forall x:(StepF X), forall a, forall f:X->Y,
     (Split (Map f x) a) = let (l,r) := Split x a in (Map f l,Map f r).
@@ -803,11 +803,11 @@ Lemma Map_identity : forall X (a:StepF X), (fun x => x) ^@> a = a.
 Proof.
  exact Ap_identity.
 Qed.
-(* begin hide *)
+(** begin hide *)
 Hint Resolve Ap_resp_Qeq.
 Hint Resolve SplitLAp_Qeq SplitRAp_Qeq.
 Hint Resolve StepF_Qeq_refl StepF_Qeq_sym StepF_Qeq_trans SplitL_resp_Qeq SplitR_resp_Qeq.
-(* end hide *)
+(** end hide *)
 
 Let compose X Y Z (x : Y ->Z) (y:X -> Y) z := x (y z).
 

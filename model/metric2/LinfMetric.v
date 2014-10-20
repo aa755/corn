@@ -75,7 +75,7 @@ Proof.
   reflexivity.
  reflexivity.
 Qed.
-(* begin hide *)
+(** begin hide *)
 Add Morphism StepQSup
   with signature  (@StepF_eq _) ==>  Qeq
  as StepQSup_wd.
@@ -96,7 +96,7 @@ Proof.
  symmetry.
  apply StepQSupSplit.
 Qed.
-(* end hide *)
+(** end hide *)
 (** How the sup interacts with various arithmetic operations on step functions. *)
 Lemma StepQSup_resp_le : forall x y, x <= y -> (StepQSup x <= StepQSup y)%Q.
 Proof.

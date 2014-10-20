@@ -320,9 +320,9 @@ Proof.
  rewrite -> (Cbind_correct QPrelengthSpace arctan_uc (' q))%CR.
  apply: BindLaw1.
 Qed.
-(* begin hide *)
+(** begin hide *)
 Hint Rewrite arctan_correct : IRtoCR.
-(* end hide *)
+(** end hide *)
 Lemma arctan_Qarctan : forall x : Q, (arctan (' x) == rational_arctan x)%CR.
 Proof.
  intros x.
@@ -330,9 +330,9 @@ Proof.
  rewrite -> (Cbind_correct QPrelengthSpace arctan_uc (' x))%CR.
  apply: BindLaw1.
 Qed.
-(* begin hide *)
+(** begin hide *)
 Hint Rewrite arctan_Qarctan : CRfast_compute.
-(* end hide *)
+(** end hide *)
 
 Instance: Proper ((=) ==> (=)) rational_arctan.
 Proof.

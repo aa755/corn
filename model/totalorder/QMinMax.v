@@ -76,7 +76,7 @@ Proof.
   apply (TotalOrder.Default.max_def1 Q Qeq Qle Qeq_le_def Qle_total).
  apply (TotalOrder.Default.max_def2 Q Qeq Qle Qeq_le_def Qle_total).
 Defined.
-(* begin hide *)
+(** begin hide *)
 Add Morphism Qmin : Qmin_compat.
 Proof.
  exact (@meet_compat QTotalOrder).
@@ -86,7 +86,7 @@ Add Morphism Qmax : Qmax_compat.
 Proof.
  exact (@join_compat QTotalOrder).
 Qed.
-(* end hide *)
+(** end hide *)
 Section QTotalOrder.
 
 Let Qto := QTotalOrder.
@@ -236,11 +236,11 @@ Definition Qmax_mult_pos_distr_l : forall x y z : Q, 0 <= x -> Qmax y z * x == Q
  fun x y z H => @monotone_join_distr Qto _ (Qmult_pos_monotone_l x H) y z.
 
 End QTotalOrder.
-(* begin hide *)
+(** begin hide *)
 Hint Resolve Qmin_lb_l: qarith.
 Hint Resolve Qmin_lb_r: qarith.
 Hint Resolve Qmin_glb: qarith.
 Hint Resolve Qmax_ub_l: qarith.
 Hint Resolve Qmax_ub_r: qarith.
 Hint Resolve Qmax_lub: qarith.
-(* end hide *)
+(** end hide *)

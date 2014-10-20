@@ -17,7 +17,7 @@
  *)
 
 (** Generic Tacticals used by the CoRN project *)
-(* begin hide *)
+(** begin hide *)
 
 Require Import SetoidTactics.
 

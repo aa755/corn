@@ -33,7 +33,7 @@
  * with this work; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *)
-(* begin hide *)
+(** begin hide *)
 (* in this file the  concrete canonical isomorphism -in te sense of
    R_morphisms.v - between two arbitrary model of real numbers is built *)
 
@@ -1587,4 +1587,4 @@ Definition Canonic_Isomorphism_between_CReals :=
     f12_inverse_lft g21_inverse_rht.
 
 End Concrete_iso_between_Creals.
-(* end hide *)
+(** end hide *)

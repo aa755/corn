@@ -44,10 +44,10 @@ Require Export CFields.
 Obsolete but maintained.
 *)
 
-(* begin hide *)
+(** begin hide *)
 Set Implicit Arguments.
 Unset Strict Implicit.
-(* end hide *)
+(** end hide *)
 
 Record VSpace (F : CField) : Type :=
   {vs_vs    :> CGroup;
@@ -57,10 +57,10 @@ Record VSpace (F : CField) : Type :=
    vs_distl : forall a b v, vs_op (a[+]b) v [=] vs_op a v[+]vs_op b v;
    vs_distr : forall a v u, vs_op a (v[+]u) [=] vs_op a v[+]vs_op a u}.
 
-(* begin hide *)
+(** begin hide *)
 Set Strict Implicit.
 Unset Implicit Arguments.
-(* end hide *)
+(** end hide *)
 
 Hint Resolve vs_assoc vs_unit vs_distl vs_distr: algebra.
 

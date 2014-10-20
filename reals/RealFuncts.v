@@ -40,10 +40,10 @@ Require Export CReals1.
 * Continuity of Functions on Reals
 *)
 
-(* begin hide *)
+(** begin hide *)
 Set Implicit Arguments.
 Unset Strict Implicit.
-(* end hide *)
+(** end hide *)
 
 Section Continuity.
 Variable f : CSetoid_un_op IR.
@@ -254,7 +254,7 @@ End Monotonic_functions.
 *)
 End Continuity.
 
-(* begin hide *)
+(** begin hide *)
 Set Strict Implicit.
 Unset Implicit Arguments.
-(* end hide *)
+(** end hide *)

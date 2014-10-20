@@ -34,7 +34,7 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *)
 
-(* begin hide *)
+(** begin hide *)
 Require Export CRings.
 Require Export AlgReflection.
 
@@ -887,4 +887,4 @@ Ltac rationalR R x y :=
                  eapply Tactic_lemmaR with (e:=t1) (f:=t2)
                  ; reflexivity.
 
-(* end hide *)
+(** end hide *)

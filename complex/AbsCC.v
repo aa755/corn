@@ -204,13 +204,13 @@ Proof.
  apply AbsCC_pos. auto.
 Qed.
 
-(* begin hide *)
+(** begin hide *)
 Let l_1_1_2 :
   forall x y : IR, (x[+I*]y) [*] (x[+I*][--]y) [=] cc_IR (x[^]2[+]y[^]2).
 Proof.
  intros. apply calculate_norm with (x := x) (y := y).
 Qed.
-(* end hide *)
+(** end hide *)
 
 Hint Resolve l_1_1_2: algebra.
 
@@ -222,13 +222,13 @@ Qed.
 
 Hint Resolve AbsCC_square_Re_Im: algebra.
 
-(* begin hide *)
+(** begin hide *)
 Let l_1_2_3_CC :
   forall x y : IR, cc_IR (x[^]2[+]y[^]2) [=] cc_IR (AbsCC (x[+I*]y) [^]2).
 Proof.
  intros. apply cc_IR_wd. apply AbsCC_square_Re_Im.
 Qed.
-(* end hide *)
+(** end hide *)
 
 Hint Resolve l_1_2_3_CC: algebra.
 
@@ -245,7 +245,7 @@ Qed.
 
 Hint Resolve CC_conj_mult: algebra.
 
-(* begin hide *)
+(** begin hide *)
 Lemma l_2_1_2 :
  forall z1 z2 : CC,
  cc_IR (AbsCC (z1[*]z2) [^]2) [=] z1[*]z2[*]CC_conj z1[*]CC_conj z2.
@@ -257,7 +257,7 @@ Proof.
 Qed.
 
 Hint Resolve l_2_1_2: algebra.
-(* end hide *)
+(** end hide *)
 
 Lemma AbsCC_mult_square : forall x y : CC, AbsCC (x[*]y) [^]2 [=] AbsCC x[^]2[*]AbsCC y[^]2.
 Proof.
@@ -390,7 +390,7 @@ Qed.
 
 (* The following lemmas are just auxiliary results *)
 
-(* begin hide *)
+(** begin hide *)
 Let l_4_1_2 :
   forall (z : CC) (H : z [#] [0]),
   z[*]cc_recip z H [=]
@@ -428,7 +428,7 @@ Proof.
  intros.
  rational.
 Qed.
-(* end hide *)
+(** end hide *)
 
 End AbsCC_properties.
 

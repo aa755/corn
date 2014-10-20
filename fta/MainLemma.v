@@ -80,18 +80,18 @@ Qed.
 %\end{convention}%
 *)
 
-(* begin hide *)
+(** begin hide *)
 Let two_n := 2 * n.
 Let Small := p3m n.
 Let Smaller := p3m (two_n * n).
-(* end hide *)
+(** end hide *)
 
 Lemma Main_1a' : forall (t : IR) (j k : nat),
  let r' := t[*]p3m (S (S j)) in let r := t[*]p3m (S j) in
  (forall i, 1 <= i -> i <= n -> a i[*]r'[^]i[-]eps [<=] a k[*]r'[^]k) ->
  forall i : nat, 1 <= i -> i <= n -> a i[*] (r [/]ThreeNZ) [^]i[-]eps [<=] a k[*] (r [/]ThreeNZ) [^]k.
 Proof.
- (* begin hide *)
+ (** begin hide *)
  intros.
  cut ((t[*]p3m (S j)) [/]ThreeNZ [=] t[*]p3m (S (S j))). intro.
   astepl (a i[*] (t[*]p3m (S (S j))) [^]i[-]eps).
@@ -99,14 +99,14 @@ Proof.
   auto.
  Step_final (t[*]p3m (S j) [/]ThreeNZ).
 Qed.
-(* end hide *)
+(** end hide *)
 
 Lemma Main_1b' : forall (t : IR) (j k : nat),
  let r' := t[*]p3m j in let r := t[*]p3m (S j) in
  (forall i, 1 <= i -> i <= n -> a i[*]r'[^]i[-]eps [<=] a k[*]r'[^]k) ->
  forall i, 1 <= i -> i <= n -> a i[*] (r[*]Three) [^]i[-]eps [<=] a k[*] (r[*]Three) [^]k.
 Proof.
- (* begin hide *)
+ (** begin hide *)
  intros.
  cut (t[*]p3m (S j) [*]Three [=] t[*]p3m j). intro.
   astepl (a i[*] (t[*]p3m j) [^]i[-]eps).
@@ -114,14 +114,14 @@ Proof.
   auto.
  Step_final (t[*] (p3m (S j) [*]Three)).
 Qed.
-(* end hide *)
+(** end hide *)
 
 Lemma Main_1a : forall (r : IR) (k : nat), [0] [<=] r -> 1 <= k -> k <= n ->
  (forall i, 1 <= i -> i <= n -> a i[*] (r [/]ThreeNZ) [^]i[-]eps [<=] a k[*] (r [/]ThreeNZ) [^]k) ->
  let p_ := fun i : nat => a i[*]r[^]i in let p_k := a k[*]r[^]k in
  Sum 1 (pred k) p_ [<=] Half[*] ([1][-]Small) [*]p_k[+]Half[*]Three[^]n[*]eps.
 Proof.
- (* begin hide *)
+ (** begin hide *)
  intros r k H H0 H1 H2 p_ p_k.
  unfold p_, p_k in |- *.
  apply leEq_transitive with (Sum 1 (pred k)
@@ -216,14 +216,14 @@ Proof.
  apply eq_symmetric_unfolded.
  apply mult_distr_sum_rht with (f := fun i : nat => (Three:IR) [^]i).
 Qed.
-(* end hide *)
+(** end hide *)
 
 Lemma Main_1b : forall (r : IR) (k : nat), [0] [<=] r -> 1 <= k -> k <= n ->
  (forall i,  1 <= i -> i <= n -> a i[*] (r[*]Three) [^]i[-]eps [<=] a k[*] (r[*]Three) [^]k) ->
  let p_ := fun i => a i[*]r[^]i in let p_k := a k[*]r[^]k in
  Sum (S k) n p_ [<=] Half[*] ([1][-]Small) [*]p_k[+]Half[*]Three[^]n[*]eps.
 Proof.
- (* begin hide *)
+ (** begin hide *)
  intros r k H H0 H1 H2 p_ p_k.
  unfold p_, p_k in |- *.
  cut (forall i : nat, Three[^]i [#] ZeroR).
@@ -322,7 +322,7 @@ Proof.
  apply mult_resp_pos; auto.
  apply pos_div_two; apply pos_one.
 Qed.
-(* end hide *)
+(** end hide *)
 
 Lemma Main_1 : forall (r : IR) (k : nat), [0] [<=] r -> 1 <= k -> k <= n ->
  (forall i,  1 <= i ->  i <= n -> a i[*] (r [/]ThreeNZ) [^]i[-]eps [<=] a k[*] (r [/]ThreeNZ) [^]k) ->
@@ -330,7 +330,7 @@ Lemma Main_1 : forall (r : IR) (k : nat), [0] [<=] r -> 1 <= k -> k <= n ->
  let p_ := fun i => a i[*]r[^]i in let p_k := a k[*]r[^]k in
  Sum 1 (pred k) p_[+]Sum (S k) n p_ [<=] ([1][-]Small) [*]p_k[+]Three[^]n[*]eps.
 Proof.
- (* begin hide *)
+ (** begin hide *)
  intros r k H H0 H1 H2 H3 p_ p_k.
  unfold p_, p_k in |- *.
  set (h := Half[*] ([1][-]Small) [*]p_k[+]Half[*]Three[^]n[*]eps) in *.
@@ -340,7 +340,7 @@ Proof.
   apply Main_1b; auto.
  unfold Half in |- *; rational.
 Qed.
-(* end hide *)
+(** end hide *)
 
 Lemma Main_2' : forall (t : IR) (i k : nat),
  a i[*] (t[*]p3m 0) [^]i[-]eps [<=] a k[*] (t[*]p3m 0) [^]k -> a i[*]t[^]i[-]eps [<=] a k[*]t[^]k.
@@ -357,7 +357,7 @@ Lemma Main_2 : forall (t : IR) (j k : nat), let r := t[*]p3m j in
  [0] [<=] t -> a k[*]t[^]k [=] a_0[-]eps -> (forall i, 1 <= i -> i <= n -> a i[*]t[^]i[-]eps [<=] a k[*]t[^]k) ->
  forall i, 1 <= i -> i <= n -> a i[*]r[^]i [<=] a_0.
 Proof.
- (* begin hide *)
+ (** begin hide *)
  intros.
  unfold r in |- *.
  apply leEq_transitive with (a i[*]t[^]i).
@@ -378,13 +378,13 @@ Proof.
   apply shift_leEq_plus'; auto.
  astepl (eps[+] (a_0[-]eps)); rational.
 Qed.
-(* end hide *)
+(** end hide *)
 
 Lemma Main_3a : forall (t : IR) (j k k_0 : nat), let r := t[*]p3m j in
  k_0 <= n -> a k_0[*]t[^]k_0 [=] a_0[-]eps -> a k_0[*]r[^]k_0[-]eps [<=] a k[*]r[^]k ->
  p3m (j * n) [*]a_0[-]Two[*]eps [<=] a k[*]r[^]k.
 Proof.
- (* begin hide *)
+ (** begin hide *)
  intros.
  unfold r in |- *.
  rstepl (p3m (j * n) [*]a_0[-]eps[-]eps).
@@ -404,13 +404,13 @@ Proof.
   apply p3m_small.
  apply less_leEq; auto.
 Qed.
-(* end hide *)
+(** end hide *)
 
 Lemma Main_3 : forall (t : IR) (j k k_0 : nat), let r := t[*]p3m j in
  j < two_n -> k_0 <= n -> a k_0[*]t[^]k_0 [=] a_0[-]eps -> a k_0[*]r[^]k_0[-]eps [<=] a k[*]r[^]k ->
  Smaller[*]a_0[-]Two[*]eps [<=] a k[*]r[^]k.
 Proof.
- (* begin hide *)
+ (** begin hide *)
  intros t j k k_0 r H H0 H1 H2.
  unfold r in |- *.
  apply leEq_transitive with (p3m (j * n) [*]a_0[-]Two[*]eps).
@@ -422,14 +422,14 @@ Proof.
   apply less_leEq; apply a_0_pos.
  apply Main_3a with k_0; auto.
 Qed.
-(* end hide *)
+(** end hide *)
 
 Lemma Main : {r : IR | [0] [<=] r | {k : nat | 1 <= k /\ k <= n /\
  (let p_ := fun i => a i[*]r[^]i in let p_k := a k[*]r[^]k in
   Sum 1 (pred k) p_[+]Sum (S k) n p_ [<=] ([1][-]Small) [*]p_k[+]Three[^]n[*]eps /\
   r[^]n [<=] a_0 /\ Smaller[*]a_0[-]Two[*]eps [<=] p_k /\ p_k [<=] a_0)}}.
 Proof.
- (* begin hide *)
+ (** begin hide *)
 Proof.
  elim (Key a n gt_n_0 eps eps_pos a_nonneg a_n_1 a_0 eps_le_a_0).
  intro t. intros H0 H1.
@@ -478,6 +478,6 @@ Proof.
  intros i H15 H16.
  apply Main_2'; auto with arith.
 Qed.
-(* end hide *)
+(** end hide *)
 
 End Main_Lemma.

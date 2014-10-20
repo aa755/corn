@@ -58,7 +58,7 @@ converge to the square root of [a]. *)
 Definition root_step (b:Q) : Q := b / (2#1) + a / ((2#1) * b).
 
 Definition root_has_error (e:Qpos) (b:Q) := a <= (b+e)^2 /\ (b-e)^2 <= a.
-(* begin hide *)
+(** begin hide *)
 Add Morphism root_has_error with signature QposEq ==> Qeq ==> iff as root_has_error_wd.
 Proof.
  intros x1 x2 Hx y1 y2 Hy.
@@ -68,7 +68,7 @@ Proof.
  rewrite -> Hx.
  reflexivity.
 Qed.
-(* end hide *)
+(** end hide *)
 Lemma root_has_error_le : forall (e1 e2:Qpos) (b:Q), e2 <= b -> e1 <= e2 -> root_has_error e1 b -> root_has_error e2 b.
 Proof.
  intros e1 e2 b Hb He [H0 H1].
@@ -952,9 +952,9 @@ Proof.
  rewrite -> (Cbind_correct QPrelengthSpace sqrt_uc ('q)%CR).
  apply: BindLaw1.
 Qed.
-(* begin hide *)
+(** begin hide *)
 Hint Rewrite CRsqrt_correct : IRtoCR.
-(* end hide *)
+(** end hide *)
 
 Lemma CRsqrt_Qsqrt : forall x : Q, (CRsqrt ('x) == rational_sqrt x)%CR.
 Proof.

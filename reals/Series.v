@@ -957,7 +957,7 @@ Hypothesis pos_x : forall n : nat, [0] [<=] x n.
 Hypothesis Lim_x : Cauchy_Lim_prop2 x [0].
 Hypothesis mon_x : forall n : nat, x (S n) [<=] x n.
 
-(* begin hide *)
+(** begin hide *)
 Let y (n : nat) := [--][1][^]n[*]x n.
 
 Let alternate_lemma1 :
@@ -1167,7 +1167,7 @@ Proof.
  apply mult_wdr.
  unfold Sum in |- *; unfold Sum1 in |- *; simpl in |- *; rational.
 Qed.
-(* end hide *)
+(** end hide *)
 
 Lemma alternate_series_conv : convergent (fun n => [--][1][^]n[*]x n).
 Proof.

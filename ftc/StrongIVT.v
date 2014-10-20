@@ -52,27 +52,27 @@ Variables a b : IR.
 Hypothesis Hab' : a [<] b.
 Hypothesis Hab : a [<=] b.
 
-(* begin hide *)
+(** begin hide *)
 Let I := Compact Hab.
 Let I' := olor a b.
-(* end hide *)
+(** end hide *)
 
 Variable F : PartIR.
 Hypothesis contF : Continuous_I Hab F.
-(* begin hide *)
+(** begin hide *)
 Let incF := contin_imp_inc _ _ _ _ contF.
-(* end hide *)
+(** end hide *)
 
 (* begin show *)
 Hypothesis incrF : forall x y, I x -> I y -> x [<] y -> forall Hx Hy, F x Hx [<] F y Hy.
 (* end show *)
 
-(* begin hide *)
+(** begin hide *)
 Let Ha := compact_inc_lft _ _ Hab.
 Let Hb := compact_inc_rht _ _ Hab.
 
 Let HFab' := incrF _ _ Ha Hb Hab' (incF _ Ha) (incF _ Hb).
-(* end hide *)
+(** end hide *)
 
 (* begin show *)
 Variable z : IR.
@@ -88,7 +88,7 @@ Lemma IVT'_seq_lemma : forall (xy : IR ** IR) (x:=fstT xy) (y:=sndT xy)
  x0 [<] y0 and F x0 (incF _ Hx0) [<] z and z [<] F y0 (incF _ Hy0) |
  y0[-]x0 [=] Two [/]ThreeNZ[*] (y[-]x) /\ x [<=] x0 /\ y0 [<=] y}}.
 Proof.
- (* begin hide *)
+ (** begin hide *)
  do 6 intro. intros H H0.
  set (x1 := (Two[*]x[+]y) [/]ThreeNZ) in *.
  set (y1 := (x[+]Two[*]y) [/]ThreeNZ) in *.
@@ -124,7 +124,7 @@ Proof.
  apply less_leEq; apply less_transitive_unfolded with y1; unfold y1 in |- *;
    [ apply lft_rht | apply rht_b ]; auto.
 Qed.
-(* end hide *)
+(** end hide *)
 
 Record IVT'_aux_seq_type : Type :=
   {IVT'seq1 : IR;

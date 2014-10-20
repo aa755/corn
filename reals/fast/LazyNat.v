@@ -101,9 +101,9 @@ Proof.
  intros x.
  refine (LazifyPmult_LazyNat _ _).
 Qed.
-(* begin hide *)
+(** begin hide *)
 Hint Rewrite <- LazifyNat_of_P LazifyPmult_LazyNat LazifyPlus LazifyPred : UnLazyNat.
-(* end hide *)
+(** end hide *)
 
 Fixpoint Pplus_LazyNat (p:positive)(n:LazyNat) {struct n} : positive :=
 match n with

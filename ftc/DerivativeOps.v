@@ -53,14 +53,14 @@ We begin with some technical stuff that will be necessary for division.
 
 Variables a b : IR.
 Hypothesis Hab : a [<=] b.
-(* begin hide *)
+(** begin hide *)
 Let I := Compact Hab.
-(* end hide *)
+(** end hide *)
 
 Variable F : PartIR.
-(* begin hide *)
+(** begin hide *)
 Let P := Dom F.
-(* end hide *)
+(** end hide *)
 
 (* begin show *)
 Hypothesis Fbnd : bnd_away_zero I F.
@@ -98,10 +98,10 @@ We can now derive all the usual rules for deriving constant and identity functio
 Variables a b : IR.
 Hypothesis Hab' : a [<] b.
 
-(* begin hide *)
+(** begin hide *)
 Let Hab := less_leEq _ _ _ Hab'.
 Let I := Compact Hab.
-(* end hide *)
+(** end hide *)
 
 Lemma Derivative_I_const : forall c : IR, Derivative_I Hab' [-C-]c [-C-][0].
 Proof.
@@ -479,10 +479,10 @@ Section Corolaries.
 Variables a b : IR.
 Hypothesis Hab' : a [<] b.
 
-(* begin hide *)
+(** begin hide *)
 Let Hab := less_leEq _ _ _ Hab'.
 Let I := Compact Hab.
-(* end hide *)
+(** end hide *)
 
 Variables F F' G G' : PartIR.
 
@@ -607,9 +607,9 @@ Variables a b : IR.
 Hypothesis Hab : a [<=] b.
 Hypothesis Hab' : a [<] b.
 
-(* begin hide *)
+(** begin hide *)
 Let I := Compact Hab.
-(* end hide *)
+(** end hide *)
 
 Lemma Derivative_I_Sum0 : forall f f' : nat -> PartIR,
  (forall n, Derivative_I Hab' (f n) (f' n)) -> forall n, Derivative_I Hab' (FSum0 n f) (FSum0 n f').

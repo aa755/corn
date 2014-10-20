@@ -62,9 +62,9 @@ type [I -> IR].
 
 Variables a b : IR.
 Hypothesis Hab : a [<=] b.
-(* begin hide *)
+(** begin hide *)
 Let I := Compact Hab.
-(* end hide *)
+(** end hide *)
 
 Variables f g : CSetoid_fun (subset I) IR.
 
@@ -220,15 +220,15 @@ Section Composition.
 
 Variables a b : IR.
 Hypothesis Hab : a [<=] b.
-(* begin hide *)
+(** begin hide *)
 Let I := Compact Hab.
-(* end hide *)
+(** end hide *)
 
 Variables a' b' : IR.
 Hypothesis Hab' : a' [<=] b'.
-(* begin hide *)
+(** begin hide *)
 Let I' := Compact Hab'.
-(* end hide *)
+(** end hide *)
 
 Variable f : CSetoid_fun (subset I) IR.
 Variable g : CSetoid_fun (subset I') IR.

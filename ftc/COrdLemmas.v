@@ -286,13 +286,13 @@ Proof.
  exists j; exists Hj; apply HP with (x := g i Hi); auto.
 Qed.
 
-(* begin hide *)
+(** begin hide *)
 Variable f : nat -> nat.
 Hypothesis f0 : f 0 = 0.
 Hypothesis f_mon : forall i j : nat, i < j -> f i < f j.
 
 Variable h : nat -> F.
-(* end hide *)
+(** end hide *)
 
 (**
 ** Summations
@@ -386,7 +386,7 @@ Qed.
 End Lemmas.
 
 Section More_Lemmas.
-(* begin hide *)
+(** begin hide *)
 Let f' (m : nat) (f : forall i, i <= m -> nat) : nat -> nat.
 Proof.
  intros i.
@@ -394,7 +394,7 @@ Proof.
   apply (f i a).
  apply (f m (le_n m) + i).
 Defined.
-(* end hide *)
+(** end hide *)
 
 Variable F : COrdField.
 

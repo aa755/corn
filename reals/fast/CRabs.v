@@ -208,7 +208,7 @@ intros q e1 e2. change (ball (e1 + e2) (Qabs (a * q)) (Qabs a * Qabs q)%Q).
 apply <- ball_eq_iff. apply Qabs_Qmult.
 Qed.
 
-(* begin hide *)
+(** begin hide *)
 (* Another proof *)
 
 Lemma CRabs_scale' (a : Q) (x : CR) : CRabs (scale a x) == scale (Qabs a) (CRabs x).
@@ -217,7 +217,7 @@ unfold CRabs, scale. setoid_rewrite <- fast_MonadLaw2.
 apply map_eq_complete. intro q. apply Qabs_Qmult.
 Qed.
 
-(* end hide *)
+(** end hide *)
 
 Lemma CRabs_CRmult_Q (a : Q) (x : CR) : CRabs ('a * x) == '(Qabs a) * (CRabs x).
 Proof. rewrite !CRmult_scale. apply CRabs_scale. Qed.

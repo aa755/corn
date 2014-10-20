@@ -104,9 +104,9 @@ Hint Immediate Qopp_Qpos_neg.
 (** Any positive rational number can be transformed into a [Qpos]. *)
 Definition mkQpos: forall (a:Q) (p:0 < a), Qpos := @exist Q (Qlt 0).
 
-(* begin hide *)
+(** begin hide *)
 Implicit Arguments mkQpos [a].
-(* end hide *)
+(** end hide *)
 Lemma QposAsmkQpos : forall (a:Q) (p:0<a), (QposAsQ (mkQpos p))=a.
 Proof.
  intros [[|an|an] ad] p.
@@ -114,9 +114,9 @@ Proof.
   reflexivity.
  discriminate.
 Qed.
-(* begin hide *)
+(** begin hide *)
 Implicit Arguments QposAsmkQpos [a].
-(* end hide *)
+(** end hide *)
 
 Lemma positive_Z (z: Z): Zlt 0 z -> sig (fun p: positive => Zpos p = z).
  destruct z; intros.
@@ -174,9 +174,9 @@ Proof.
  trivial.
 Qed.
 
-(* begin hide *)
+(** begin hide *)
 Hint Rewrite QposAsmkQpos QposAsQposMake : QposElim.
-(* end hide *)
+(** end hide *)
 
 (**
 *** Equality
@@ -208,7 +208,7 @@ Next Obligation.
 Qed.
 
 Infix "+" := Qpos_plus : Qpos_scope.
-(* begin hide *)
+(** begin hide *)
 Add Morphism Qpos_plus : Qpos_plus_wd.
 Proof.
  intros x1 x2 Hx y1 y2 Hy.
@@ -217,14 +217,14 @@ Proof.
  simpl.
  apply Qplus_comp; assumption.
 Qed.
-(* end hide *)
+(** end hide *)
 Lemma Q_Qpos_plus : forall (x y:Qpos), ((x + y)%Qpos:Q)=(x:Q)+(y:Q).
 Proof.
  trivial.
 Qed.
-(* begin hide *)
+(** begin hide *)
 Hint Rewrite Q_Qpos_plus : QposElim.
-(* end hide *)
+(** end hide *)
 
 (**
 *** One
@@ -235,9 +235,9 @@ Notation "1" := Qpos_one : Qpos_scope.
 
 Lemma Q_Qpos_one : (1%Qpos:Q)=(1:Q).
 Proof. trivial. Qed.
-(* begin hide *)
+(** begin hide *)
 Hint Rewrite Q_Qpos_one : QposElim.
-(* end hide *)
+(** end hide *)
 
 (**
 *** Multiplication
@@ -246,7 +246,7 @@ Hint Rewrite Q_Qpos_one : QposElim.
 Program Definition Qpos_mult (x y:Qpos) : Qpos := Qmult x y.
 
 Infix "*" := Qpos_mult : Qpos_scope.
-(* begin hide *)
+(** begin hide *)
 Add Morphism Qpos_mult : Qpos_mult_wd.
 Proof.
  intros x1 x2 Hx y1 y2 Hy.
@@ -255,14 +255,14 @@ Proof.
  simpl.
  apply Qmult_comp; assumption.
 Qed.
-(* end hide *)
+(** end hide *)
 Lemma Q_Qpos_mult : forall (x y:Qpos), ((x * y)%Qpos:Q)=(x:Q)*(y:Q).
 Proof.
  trivial.
 Qed.
-(* begin hide *)
+(** begin hide *)
 Hint Rewrite Q_Qpos_mult : QposElim.
-(* end hide *)
+(** end hide *)
 (**
 *** Inverse
 *)
@@ -275,7 +275,7 @@ Next Obligation.
  assumption.
 Qed.
 
-(* begin hide *)
+(** begin hide *)
 Add Morphism Qpos_inv : Qpos_inv_wd.
 Proof.
  intros [x P] [y Q] E.
@@ -284,7 +284,7 @@ Proof.
  rewrite E.
  reflexivity.
 Qed.
-(* end hide *)
+(** end hide *)
 Lemma Q_Qpos_inv : forall (x:Qpos), Qpos_inv x = / x :> Q.
 Proof.
  trivial.
@@ -321,9 +321,9 @@ Proof.
  exists (mkQpos H0).
  QposRing.
 Defined.
-(* begin hide *)
+(** begin hide *)
 Implicit Arguments Qpos_lt_plus [a b].
-(* end hide *)
+(** end hide *)
 (**
 *** Power
 *)
@@ -351,7 +351,7 @@ Proof.
 Defined.
 
 Infix "^" := Qpos_power : Qpos_scope.
-(* begin hide *)
+(** begin hide *)
 Instance Qpos_power_wd: Proper (QposEq ==> @eq Z ==> QposEq) Qpos_power.
 Proof.
  intros x1 x2 Hx y1 y2 Hy.
@@ -361,7 +361,7 @@ Proof.
  simpl.
  now rewrite Hx, Hy.
 Qed.
-(* end hide *)
+(** end hide *)
 Lemma Q_Qpos_power : forall (x:Qpos) z, ((x^z)%Qpos:Q)==(x:Q)^z.
 Proof.
  intros.

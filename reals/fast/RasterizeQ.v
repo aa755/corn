@@ -49,7 +49,7 @@ Definition RasterizePoint n m (bm:raster n m) (t l b r:Q) (p:Q*Q) : raster n m :
 let i := min (pred n) (Z_to_nat (Zle_max_l 0 (rasterize1 l r n (fst p)))) in
 let j := min (pred m) (Z_to_nat (Zle_max_l 0 (rasterize1 b t m (snd p)))) in
 setRaster bm true (pred m - j) i.
-(* begin hide *)
+(** begin hide *)
 Add Parametric Morphism n m bm : (@RasterizePoint n m bm) with signature Qeq ==> Qeq ==> Qeq ==> Qeq ==> (@eq _) ==> (@eq _) as RasterizePoint_wd.
 Proof.
  intros x0 x1 H x2 x3 H0 x4 x5 H1 x6 x7 H2 x.
@@ -66,7 +66,7 @@ Proof.
  rewrite -> H1.
  reflexivity.
 Qed.
-(* end hide *)
+(** end hide *)
 Lemma RasterizePoint_carry : forall t l b r n m (bm:raster n m) p i j,
  Is_true (RasterIndex bm i j) -> Is_true (RasterIndex (RasterizePoint bm t l b r p) i j).
 Proof.
@@ -94,7 +94,7 @@ the resulting raster transfomers.  A fold_left is done for efficency.
 (* This function could be a bit more efficent by sorting x *)
 Definition RasterizeQ2 (f:FinEnum stableQ2) n m (t l b r:Q) : raster n m :=
 fold_left (fun x y => @RasterizePoint n m x t l b r y) f (emptyRaster _ _).
-(* begin hide *)
+(** begin hide *)
 Add Parametric Morphism f n m : (@RasterizeQ2 f n m) with signature Qeq ==> Qeq ==> Qeq ==> Qeq ==> (@eq _) as RasterizeQ2_wd.
 Proof.
  intros.
@@ -106,7 +106,7 @@ Proof.
  rewrite IHl.
  apply RasterizePoint_wd; auto.
 Qed.
-(* end hide *)
+(** end hide *)
 Section RasterizeCorrect.
 
 Let C := fun l r (n:nat) (i:Z) => l + (r - l) * (2 * i + 1 # 1) / (2 * n # 1).

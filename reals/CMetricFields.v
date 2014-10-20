@@ -94,7 +94,7 @@ Proof.
     apply eq_symmetric_unfolded.
     exact H3.
    intro H3.
-   (* begin hide *)
+   (** begin hide *)
    Lemma Hulp : forall F : CMetricField,
      cmf_abs F [1] [=] [1] -> cmf_abs F [--][1] [=] [--] (cmf_abs F [1]) -> False.
  intros F G H.
@@ -111,7 +111,7 @@ Proof.
  astepr OneR.
  apply pos_one.
 Qed.
-(* begin hide *)
+(** begin hide *)
 simpl in |- *.
 Proof.
    set (H4 := Hulp F H1 H3) in *.
@@ -143,7 +143,7 @@ Proof.
   rational.
  apply MAbs_one.
 Qed.
-(* end hide *)
+(** end hide *)
 
 End basics.
 Section CMetric_Field_Cauchy.

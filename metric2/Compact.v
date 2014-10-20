@@ -307,7 +307,7 @@ Proof.
 Qed.
 
 End AlmostIn.
-(* begin hide *)
+(** begin hide *)
 Add Parametric Morphism X stableX : (@almostIn X stableX) with signature QposEq ==> (@st_eq _) ==> (@st_eq _) ==> iff as almostIn_wd.
 Proof.
  unfold FinEnum_eq.
@@ -383,7 +383,7 @@ Proof.
   right; assumption.
  assumption.
 Qed.
-(* end hide *)
+(** end hide *)
 (**
 ** Definition of Compact
 A compact set is defined as the completion of finite enumerations as
@@ -394,7 +394,7 @@ Definition Compact X (stableX : stableMetric X) := Complete (FinEnum stableX).
 the approximations of the compact set. *)
 Definition inCompact X stableX (x:Complete X) (s:Compact stableX) :=
  forall e1 e2, almostIn (e1 + e2) (approximate x e1) (approximate s e2).
-(* begin hide *)
+(** begin hide *)
 Add Parametric Morphism X stableX : (@inCompact X stableX) with signature (@st_eq _) ==> (@st_eq _) ==> iff as inCompact_wd.
 Proof.
  cut (forall x1 x2 : Complete X, st_eq x1 x2 -> forall x3 x4 : Complete (FinEnum stableX),
@@ -414,7 +414,7 @@ Proof.
  apply almostIn_triangle_l with (approximate x1 d');[apply Hx|].
  apply H.
 Qed.
-(* end hide *)
+(** end hide *)
 Section Compact.
 
 Variable X : MetricSpace.

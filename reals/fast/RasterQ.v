@@ -213,7 +213,7 @@ Proof.
 Qed.
 
 End InterpRasterCorrect.
-(* begin hide *)
+(** begin hide *)
 Add Parametric Morphism n m bm : (@InterpRaster n m bm) with signature (@st_eq _) ==> (@st_eq _) ==> (@st_eq _) as InterpRaster_wd.
 Proof.
  cut (forall (x1 x2 : Q2), prod_st_eq Q_as_MetricSpace Q_as_MetricSpace x1 x2 -> forall x3 x4 : Q2,
@@ -251,4 +251,4 @@ Proof.
  apply InFinEnumC_weaken.
  auto using InterpRaster_correct1.
 Qed.
-(* end hide *)
+(** end hide *)

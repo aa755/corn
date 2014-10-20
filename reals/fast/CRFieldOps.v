@@ -367,9 +367,9 @@ Proof with simpl in *; auto with *.
  stepr (- (- (fst x # snd x))); [| simpl; ring]...
 Qed.
 
-(* begin hide *)
+(** begin hide *)
 Implicit Arguments Qmult_uc_prf [].
-(* end hide *)
+(** end hide *)
 Definition Qmult_uc (c:Qpos) :  Q_as_MetricSpace --> Q_as_MetricSpace --> Q_as_MetricSpace:=
 Build_UniformlyContinuousFunction (Qmult_uc_prf c).
 
@@ -524,7 +524,7 @@ Proof.
   apply CR_b_lowerBound.
  apply CR_b_upperBound.
 Qed.
-(* begin hide *)
+(** begin hide *)
 Add Morphism CRmult with signature (@st_eq _) ==> (@st_eq _) ==> (@st_eq _) as CRmult_wd.
 Proof.
  intros x1 x2 Hx y1 y2 Hy.
@@ -538,7 +538,7 @@ Proof.
   apply CR_b_lowerBound.
  apply CR_b_upperBound.
 Qed.
-(* end hide *)
+(** end hide *)
 Lemma CRmult_scale : forall (a:Q) (y:CR), ((' a)*y==scale a y)%CR.
 Proof.
  intros a y.
@@ -568,9 +568,9 @@ Proof.
   apply CR_b_lowerBound.
  apply CR_b_upperBound.
 Qed.
-(* begin hide *)
+(** begin hide *)
 Hint Rewrite CRmult_scale : CRfast_compute.
-(* end hide *)
+(** end hide *)
 Lemma scale_Qmult : forall a b:Q, (scale a ('b)=='(a*b)%Q)%CR.
 Proof.
  intros a b.
@@ -579,9 +579,9 @@ Proof.
  rewrite -> Cmap_fun_correct.
  apply: MonadLaw3.
 Qed.
-(* begin hide *)
+(** begin hide *)
 Hint Rewrite scale_Qmult : CRfast_compute.
-(* end hide *)
+(** end hide *)
 (**
 ** Inverse
 The modulus of continuity for inverse depends on a rational bound

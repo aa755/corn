@@ -237,9 +237,9 @@ Qed.
 
 End SupMetric.
 
-(* begin hide *)
+(** begin hide *)
 Canonical Structure StepFSup.
-(* end hide *)
+(** end hide *)
 
 Lemma StepFSupBallBind(X:MetricSpace): ((forall (e : Qpos) (a b : StepF (StepFS X)) ,
 forall f:(StepFS X) -->(StepFS X),

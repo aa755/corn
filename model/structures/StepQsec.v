@@ -289,7 +289,7 @@ Qed.
 (**
 ** A Partial Order on Step Functions. *)
 Definition StepQ_le x y := (StepFfoldProp (QleS ^@> x <@> y)).
-(* begin hide *)
+(** begin hide *)
 Add Morphism StepQ_le
   with signature (@StepF_eq QS) ==> (@StepF_eq QS) ==> iff
  as StepQ_le_wd.
@@ -300,7 +300,7 @@ Proof.
  rewrite -> Hy.
  reflexivity.
 Qed.
-(* end hide *)
+(** end hide *)
 Notation "x <= y" := (StepQ_le x y) (at level 70) : sfstscope.
 
 Lemma StepQ_le_refl:forall x, (x <= x).

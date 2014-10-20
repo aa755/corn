@@ -160,7 +160,7 @@ Proof.
  intro; astepl a; apply lft_leEq_Max.
 Qed.
 
-(* begin hide *)
+(** begin hide *)
 Let maxlist_aux :
   forall (a b : IR) (l : list IR),
   maxlist (cons a (cons b l)) [=] maxlist (cons b (cons a l)).
@@ -189,7 +189,7 @@ Proof.
   2: apply rht_leEq_Max.
  apply rht_leEq_Max.
 Qed.
-(* end hide *)
+(** end hide *)
 
 Lemma maxlist_leEq_eps : forall l : list IR, {x : IR | member x l} ->
  forall e, [0] [<] e -> {x : IR | member x l | maxlist l[-]e [<=] x}.
@@ -308,7 +308,7 @@ Proof.
  intro; astepr a; apply Min_leEq_lft.
 Qed.
 
-(* begin hide *)
+(** begin hide *)
 Let minlist_aux :
   forall (a b : IR) (l : list IR),
   minlist (cons a (cons b l)) [=] minlist (cons b (cons a l)).
@@ -337,7 +337,7 @@ Proof.
   apply Min_leEq_rht.
  apply Min_leEq_rht.
 Qed.
-(* end hide *)
+(** end hide *)
 
 Lemma minlist_leEq_eps : forall l : list IR, {x : IR | member x l} ->
  forall e, [0] [<] e -> {x : IR | member x l | x [<=] minlist l[+]e}.

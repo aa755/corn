@@ -59,7 +59,7 @@ Proof.
  apply eq_reflexive.
 Qed.
 
-(* begin hide *)
+(** begin hide *)
 Lemma ExpCC_equation_aid_1 :
   forall z1 z2 : CC,
   ExpCC (z1[+]z2) [=]
@@ -120,7 +120,7 @@ Proof.
  astepl (cc_IR (Exp (Re z1)) [*]cc_IR (Exp (Re z2)) [*] (c[*]d)).
  rational.
 Qed.
-(* end hide *)
+(** end hide *)
 
 Lemma ExpCC_plus : forall z1 z2 : CC, ExpCC (z1[+]z2) [=] ExpCC z1[*]ExpCC z2.
 Proof.

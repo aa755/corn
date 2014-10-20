@@ -94,17 +94,17 @@ Using the results from these files, we prove our main lemma in several steps
 
 Variables a b : IR.
 Hypothesis Hab : a [<=] b.
-(* begin hide *)
+(** begin hide *)
 Let I := Compact Hab.
-(* end hide *)
+(** end hide *)
 
 Variable F : PartIR.
 Hypothesis contF : Continuous_I Hab F.
 Hypothesis incF : included (Compact Hab) (Dom F).
 
-(* begin hide *)
+(** begin hide *)
 Let contF' := contin_prop _ _ _ _ contF.
-(* end hide *)
+(** end hide *)
 
 Section First_Refinement_Lemma.
 
@@ -126,9 +126,9 @@ respectively.
 Variable e : IR.
 Hypothesis He : [0] [<] e.
 
-(* begin hide *)
+(** begin hide *)
 Let d := proj1_sig2T _ _ _ (contF' e He).
-(* end hide *)
+(** end hide *)
 
 Variables m n : nat.
 Variable P : Partition Hab n.
@@ -145,7 +145,7 @@ Variable fQ : forall i : nat, i < m -> IR.
 Hypothesis HfQ : Points_in_Partition Q fQ.
 Hypothesis HfQ' : nat_less_n_fun fQ.
 
-(* begin hide *)
+(** begin hide *)
 Let sub := proj1_sig2T _ _ _ Href.
 
 Lemma RL_sub_0 : sub 0 = 0.
@@ -548,7 +548,7 @@ Proof.
  apply eq_imp_leEq; apply AbsIR_eq_x.
  apply shift_leEq_minus; astepl (Q j (lt_le_weak _ _ (H _ _ H1 Hj'))); apply prf2.
 Qed.
-(* end hide *)
+(** end hide *)
 
 Lemma first_refinement_lemma : AbsIR (Partition_Sum HfP incF[-]Partition_Sum HfQ incF) [<=] e[*] (b[-]a).
 Proof.
@@ -626,10 +626,10 @@ Variables e e' : IR.
 Hypothesis He : [0] [<] e.
 Hypothesis He' : [0] [<] e'.
 
-(* begin hide *)
+(** begin hide *)
 Let d := proj1_sig2T _ _ _ (contF' e He).
 Let d' := proj1_sig2T _ _ _ (contF' e' He').
-(* end hide *)
+(** end hide *)
 
 Hypothesis HMeshP : Mesh P [<=] d.
 Hypothesis HMeshR : Mesh R [<=] d'.
@@ -688,10 +688,10 @@ Variables e e' : IR.
 Hypothesis He : [0] [<] e.
 Hypothesis He' : [0] [<] e'.
 
-(* begin hide *)
+(** begin hide *)
 Let d := proj1_sig2T _ _ _ (contF' e He).
 Let d' := proj1_sig2T _ _ _ (contF' e' He').
-(* end hide *)
+(** end hide *)
 
 Hypothesis HMeshP : Mesh P [<] d.
 Hypothesis HMeshR : Mesh R [<] d'.
@@ -709,7 +709,7 @@ Hypothesis Hab' : a [<] b.
 Variable beta : IR.
 Hypothesis Hbeta : [0] [<] beta.
 
-(* begin hide *)
+(** begin hide *)
 Let alpha := beta [/]ThreeNZ.
 
 Lemma RL_alpha : [0] [<] alpha.
@@ -912,7 +912,7 @@ Proof.
  apply Sumx_wd; intros.
  algebra.
 Qed.
-(* end hide *)
+(** end hide *)
 
 Lemma third_refinement_lemma :
  AbsIR (Partition_Sum HfP incF[-]Partition_Sum HfR incF) [<=] e[*] (b[-]a) [+]e'[*] (b[-]a) [+]beta.
@@ -950,7 +950,7 @@ End Third_Refinement_Lemma.
 
 Section Fourth_Refinement_Lemma.
 
-(* begin hide *)
+(** begin hide *)
 Let Fa := Part F a (incF _ (compact_inc_lft a b Hab)).
 
 Notation just := (fun z => incF _ (Pts_part_lemma _ _ _ _ _ _ z _ _)).
@@ -986,7 +986,7 @@ Proof.
   apply finish.
  apply start.
 Qed.
-(* end hide *)
+(** end hide *)
 
 (**
 Finally, this is inequality (2.6.7) exactly as stated (same conventions as
@@ -1002,10 +1002,10 @@ Variables e e' : IR.
 Hypothesis He : [0] [<] e.
 Hypothesis He' : [0] [<] e'.
 
-(* begin hide *)
+(** begin hide *)
 Let d := proj1_sig2T _ _ _ (contF' e He).
 Let d' := proj1_sig2T _ _ _ (contF' e' He').
-(* end hide *)
+(** end hide *)
 
 Hypothesis HMeshP : Mesh P [<] d.
 Hypothesis HMeshR : Mesh R [<] d'.
@@ -1123,10 +1123,10 @@ Variables e e' : IR.
 Hypothesis He : [0] [<] e.
 Hypothesis He' : [0] [<] e'.
 
-(* begin hide *)
+(** begin hide *)
 Let d := proj1_sig2T _ _ _ (contF' e He).
 Let d' := proj1_sig2T _ _ _ (contF' e' He').
-(* end hide *)
+(** end hide *)
 
 Hypothesis HMeshP : Mesh P [<] d.
 Hypothesis HMeshR : Mesh R [<] d'.

@@ -121,9 +121,9 @@ Hypothesis contF : Continuous J F.
 Variable x0 : IR.
 Hypothesis Hx0 : J x0.
 
-(* begin hide *)
+(** begin hide *)
 Let G := ( [-S-]contF) x0 Hx0.
-(* end hide *)
+(** end hide *)
 
 Lemma Continuous_prim : Continuous J G.
 Proof.
@@ -259,9 +259,9 @@ Qed.
 The following is another statement of the Fundamental Theorem of Calculus, also known as Barrow's rule.
 *)
 
-(* begin hide *)
+(** begin hide *)
 Let G0_inc := Derivative_imp_inc _ _ _ _ derG0.
-(* end hide *)
+(** end hide *)
 
 End FTC.
 
@@ -270,7 +270,7 @@ Theorem Barrow : forall J F (contF : Continuous J F)
  a b (H : Continuous_I (Min_leEq_Max a b) F) Ha Hb,
  let Ha' := Derivative_imp_inc _ _ _ _ derG0 a Ha in let Hb' := Derivative_imp_inc _ _ _ _ derG0 b Hb in Integral H [=] G0 b Hb'[-]G0 a Ha'.
 Proof.
- (* begin hide *)
+ (** begin hide *)
  intros J F contF pJ G0 derG0 a b H1 Ha Hb; intros.
  pose (x0:=a).
  pose (Hx0:=Ha).
@@ -336,7 +336,7 @@ Proof.
  rstepl (y[+] (x[-]y)).
  algebra.
 Qed.
-(* end hide *)
+(** end hide *)
 
 Hint Resolve Continuous_prim: continuous.
 Hint Resolve FTC1: derivate.
@@ -392,10 +392,10 @@ Variable x0 : IR.
 Hypothesis Hx0 : J x0.
 Hypothesis Hx0' : Compact Hab x0.
 
-(* begin hide *)
+(** begin hide *)
 Let g (n : nat) := ( [-S-]contf n) x0 Hx0.
 Let G := ( [-S-]contF) x0 Hx0.
-(* end hide *)
+(** end hide *)
 
 (* begin show *)
 Hypothesis contg : forall n : nat, Continuous_I Hab (g n).
@@ -518,10 +518,10 @@ Hypothesis convF : conv_fun_seq'_IR J f F contf contF.
 Variable x0 : IR.
 Hypothesis Hx0 : J x0.
 
-(* begin hide *)
+(** begin hide *)
 Let g (n : nat) := ( [-S-]contf n) x0 Hx0.
 Let G := ( [-S-]contF) x0 Hx0.
-(* end hide *)
+(** end hide *)
 
 Hypothesis contg : forall n : nat, Continuous J (g n).
 Hypothesis contG : Continuous J G.

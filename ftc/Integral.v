@@ -39,7 +39,7 @@ Require Export RefLemma.
 (** printing integral %\ensuremath{\int_I}% #&int;<sub>I</sub># *)
 (** printing Integral %\ensuremath{\int_I}% #&int;<sub>I</sub># *)
 
-(* begin hide *)
+(** begin hide *)
 Section Lemmas.
 
 Let Sumx_wd_weird :
@@ -103,7 +103,7 @@ Proof.
 Qed.
 
 End Lemmas.
-(* end hide *)
+(** end hide *)
 
 Section Integral.
 
@@ -123,14 +123,14 @@ continuous functions in [I].
 
 Variables a b : IR.
 Hypothesis Hab : a [<=] b.
-(* begin hide *)
+(** begin hide *)
 Let I := Compact Hab.
 
 Variable F : PartIR.
 Hypothesis contF : Continuous_I Hab F.
 
 Let contF' := contin_prop _ _ _ _ contF.
-(* end hide *)
+(** end hide *)
 
 Section Darboux_Sum.
 
@@ -222,9 +222,9 @@ Variable P : Partition Hab n.
 Variable e : IR.
 Hypothesis He : [0] [<] e.
 
-(* begin hide *)
+(** begin hide *)
 Let d := proj1_sig2T _ _ _ (contF' e He).
-(* end hide *)
+(** end hide *)
 
 Hypothesis HmeshP : Mesh P [<] d.
 
@@ -307,9 +307,9 @@ The usual extensionality and strong extensionality results hold.
 
 Variables a b : IR.
 Hypothesis Hab : a [<=] b.
-(* begin hide *)
+(** begin hide *)
 Let I := Compact Hab.
-(* end hide *)
+(** end hide *)
 
 Notation Integral := (integral _ _ Hab).
 
@@ -562,9 +562,9 @@ Hypothesis contG : Continuous_I Hab G.
 *)
 
 Variables alpha beta : IR.
-(* begin hide *)
+(** begin hide *)
 Let h := alpha{**}F{+}beta{**}G.
-(* end hide *)
+(** end hide *)
 Hypothesis contH : Continuous_I Hab h.
 
 Lemma linear_integral : Integral h contH [=] alpha[*]Integral F contF[+]beta[*]Integral G contG.
@@ -727,12 +727,12 @@ Variables n m : nat.
 Variable P : Partition Hac n.
 Variable Q : Partition Hcb m.
 
-(* begin hide *)
+(** begin hide *)
 Lemma partition_join_aux : forall i n m, n < i -> i <= S (n + m) -> i - S n <= m.
 Proof.
  intros; omega.
 Qed.
-(* end hide *)
+(** end hide *)
 
 Definition partition_join_fun : forall i, i <= S (n + m) -> IR.
 Proof.
@@ -743,7 +743,7 @@ Proof.
  apply (Q _ H0).
 Defined.
 
-(* begin hide *)
+(** begin hide *)
 Lemma pjf_1 : forall (i : nat) Hi Hi', partition_join_fun i Hi [=] P i Hi'.
 Proof.
  intros; unfold partition_join_fun in |- *.
@@ -854,7 +854,7 @@ Proof.
   exact partition_join_start.
  exact partition_join_finish.
 Defined.
-(* end hide *)
+(** end hide *)
 
 (**
 %\begin{convention}% [fP, fQ] are choices of points respecting [P] and [Q].
@@ -869,12 +869,12 @@ Variable fQ : forall i : nat, i < m -> IR.
 Hypothesis HfQ : Points_in_Partition Q fQ.
 Hypothesis HfQ' : nat_less_n_fun fQ.
 
-(* begin hide *)
+(** begin hide *)
 Lemma partition_join_aux' : forall i n m, n < i -> i < S (n + m) -> i - S n < m.
 Proof.
  intros; omega.
 Qed.
-(* end hide *)
+(** end hide *)
 
 Definition partition_join_pts : forall i, i < S (n + m) -> IR.
 Proof.
@@ -887,7 +887,7 @@ Proof.
  apply (fQ _ H0).
 Defined.
 
-(* begin hide *)
+(** begin hide *)
 Lemma pjp_1 : forall (i : nat) Hi Hi', partition_join_pts i Hi [=] fP i Hi'.
 Proof.
  intros; unfold partition_join_pts in |- *.
@@ -918,7 +918,7 @@ Proof.
   2: apply HfQ'; auto.
  algebra.
 Qed.
-(* end hide *)
+(** end hide *)
 
 Lemma partition_join_Pts_in_partition : Points_in_Partition partition_join partition_join_pts.
 Proof.
@@ -1241,7 +1241,7 @@ Lemma integral_less_norm : forall a b Hab (F : PartIR) contF,
  let N := Norm_Funct contF in a [<] b -> forall x, Compact Hab x -> forall Hx,
  AbsIR (F x Hx) [<] N -> AbsIR (integral a b Hab F contF) [<] N[*] (b[-]a).
 Proof.
- (* begin hide *)
+ (** begin hide *)
  intros a b Hab F contF N Hless x H Hx H0.
  set (e := (N[-]AbsIR (F x Hx)) [/]TwoNZ) in *.
  cut ([0] [<] e); intros.
@@ -1372,13 +1372,13 @@ Proof.
  split; auto.
  apply leEq_transitive with mid2; auto.
 Qed.
-(* end hide *)
+(** end hide *)
 
 Lemma integral_gt_zero : forall a b Hab (F : PartIR) contF, let N := Norm_Funct contF in
  a [<] b -> forall x, Compact Hab x -> forall Hx, [0] [<] F x Hx ->
  (forall x, Compact Hab x -> forall Hx, [0] [<=] F x Hx) -> [0] [<] integral a b Hab F contF.
 Proof.
- (* begin hide *)
+ (** begin hide *)
  intros a b Hab F contF N Hless x H Hx H0.
  set (e := F x Hx [/]TwoNZ) in *.
  cut ([0] [<] e). intros H1 H2.
@@ -1492,6 +1492,6 @@ Proof.
  split; auto.
  apply leEq_transitive with mid2; auto.
 Qed.
-(* end hide *)
+(** end hide *)
 
 (** remove printing Integral *)

@@ -299,6 +299,6 @@ Proof.
 Qed.
 
 End Pi.
-(* begin hide *)
+(** begin hide *)
 Hint Rewrite CRpi_correct : IRtoCR.
-(* end hide *)
+(** end hide *)

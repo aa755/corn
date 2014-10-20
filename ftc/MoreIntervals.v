@@ -132,9 +132,9 @@ Definition iprop (I : interval) (x : IR) : CProp :=
   | clcr a b => a [<=] x and x [<=] b
   end.
 
-(* begin hide *)
+(** begin hide *)
 Coercion iprop : interval >-> Funclass.
-(* end hide *)
+(** end hide *)
 
 (**
 This map is made into a coercion, so that intervals
@@ -450,7 +450,7 @@ I$#x&isin;[a,b]&sube;I#.
 
 Section Proper_Compact_with_One_or_Two_Points.
 
-(* begin hide *)
+(** begin hide *)
 Let cip1' : forall c x : IR, c [<=] x -> x[-] (x[-]c) [/]TwoNZ [<=] x.
 Proof.
  intros.
@@ -589,7 +589,7 @@ Proof.
  intros c0 x x0 H H0.
  apply cip3'' with x; try apply less_leEq; auto.
 Qed.
-(* end hide *)
+(** end hide *)
 
 Definition compact_in_interval I (pI : proper I) x (Hx : I x) : interval.
 Proof.

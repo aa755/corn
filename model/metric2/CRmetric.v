@@ -52,10 +52,10 @@ We omit this for backward, and forward, compatibity
 (we can't define it for Q → AR either).
 *)
 
-(* begin hide *)
+(** begin hide *)
 Instance inject_Q_CR_wd: Proper ((=) ==> (=)) inject_Q_CR.
 Proof uc_wd (@Cunit Q_as_MetricSpace).
-(* end hide *)
+(** end hide *)
 
 Notation "' x" := (inject_Q_CR x) : CR_scope.
 

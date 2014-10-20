@@ -34,7 +34,7 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *)
 
-(* begin hide *)
+(** begin hide *)
 Require Export MoreFunSeries.
 Require Export Composition.
 Require Export DiffTactics2.
@@ -173,4 +173,4 @@ Ltac Derivative_Help :=
         [ unfold symbPF_deriv, symb_to_PartIR in |- *
         | simpl in |- *; Deriv ])
   end.
-(* end hide *)
+(** end hide *)

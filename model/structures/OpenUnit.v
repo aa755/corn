@@ -70,9 +70,9 @@ Proof.
  replace RHS with a by simpl; ring.
  assumption.
 Qed.
-(* begin hide *)
+(** begin hide *)
 Hint Resolve OpenUnit_0_lt OpenUnit_lt_1 OpenUnit_0_lt_Dual OpenUnit_Dual_lt_1 : ouarith.
-(* end hide *)
+(** end hide *)
 (** Multiplication *)
 Definition OpenUnitMult (a b:OpenUnit):OpenUnit.
 Proof.
@@ -180,9 +180,9 @@ Proof.
  replace RHS with (o*(b-a)) by simpl; ring.
  apply: mult_resp_pos; simpl; auto with *.
 Qed.
-(* begin hide *)
+(** begin hide *)
 Hint Resolve affineCombo_lt affineCombo_gt : ouarith.
-(* end hide *)
+(** end hide *)
 
 Lemma affineAffine_l : forall a b o1 o2,
 (affineCombo o1 a (affineCombo o2 a b)==affineCombo (OpenUnitDualMult o1 o2) a b)%Q.

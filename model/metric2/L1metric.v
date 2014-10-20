@@ -107,7 +107,7 @@ Proof.
  rewrite -> H.
  reflexivity.
 Qed.
-(* begin hide *)
+(** begin hide *)
 Hint Resolve IntegralSplit : StepQArith.
 
 Add Morphism IntegralQ
@@ -154,7 +154,7 @@ Proof.
 Qed.
 
 Hint Rewrite Integral_glue: StepF_rew.
-(* end hide *)
+(** end hide *)
 (** How the intergral intreacts with arithemetic functions on step
 functions. *)
 Lemma Integral_plus:forall s t,
@@ -432,9 +432,9 @@ Proof.
 Qed.
 
 Definition L1S : RSetoid := Build_RSetoid (StepF_Sth QS).
-(* begin hide *)
+(** begin hide *)
 Canonical Structure L1S.
-(* end hide *)
+(** end hide *)
 (**
 *** Example of a Metric Space <StepQ, L1Ball>
 *)
@@ -448,7 +448,7 @@ Proof.
   apply: L1ball_closed.
  apply: L1ball_eq.
 Qed.
-(* begin hide *)
+(** begin hide *)
 Add Morphism L1Ball with signature QposEq ==> (@StepF_eq _) ==> (@StepF_eq _) ==> iff as L1Ball_wd.
 Proof.
  intros x1 x2 Hx y1 y2 Hy z1 z2 Hz.
@@ -459,12 +459,12 @@ Proof.
  rewrite -> Hz.
  reflexivity.
 Qed.
-(* end hide *)
+(** end hide *)
 Definition L1StepQ : MetricSpace :=
 @Build_MetricSpace L1S _ L1Ball_wd L1_is_MetricSpace.
-(* begin hide *)
+(** begin hide *)
 Canonical Structure L1StepQ.
-(* end hide *)
+(** end hide *)
 (** The L1 metric is a prelength space. *)
 Lemma L1StepQPrelengthSpace : PrelengthSpace L1StepQ.
 Proof.

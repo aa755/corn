@@ -68,9 +68,9 @@ Hypothesis degree_f : degree_le n f.
 
 Add Ring cpolycring_th : (cpoly_ring_th R).
 
-(* begin hide *)
+(** begin hide *)
 Notation RX := (cpoly_cring R).
-(* end hide *)
+(** end hide *)
 
 Load "Transparent_algebra".
 
@@ -467,9 +467,9 @@ Variable R:CField.
 (* begin show *)
 Hypothesis H : (Char0 R).
 (* end show *)
-(* begin hide *)
+(** begin hide *)
 Notation RX := (cpoly_cring R).
-(* end hide *)
+(** end hide *)
 
 Lemma poly_apzero : forall f : RX, f [#] [0] -> {c : R | f ! c [#] [0]}.
 Proof.
@@ -512,9 +512,9 @@ End Characteristic_zero.
 Section Poly_ApZero_Interval.
 
 Variable R : COrdField.
-(* begin hide *)
+(** begin hide *)
 Notation RX := (cpoly_cring R).
-(* end hide *)
+(** end hide *)
 
 Lemma Cpoly_apzero_interval : forall f : RX, f [#] [0] ->
  forall a b, a [<] b -> {c : R | a [<=] c /\ c [<=] b | f ! c [#] [0]}.

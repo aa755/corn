@@ -897,10 +897,10 @@ Section PosP_properties.
 *)
 Variable R : COrdField.
 
-(* begin hide *)
+(** begin hide *)
 Notation ZeroR := ([0]:R).
 Notation OneR := ([1]:R).
-(* end hide *)
+(** end hide *)
 
 Lemma mult_pos_imp : forall a b : R, [0] [<] a[*]b -> [0] [<] a and [0] [<] b or a [<] [0] and b [<] [0].
 Proof.

@@ -460,7 +460,7 @@ Lemma Key : {t : IR | [0] [<=] t | forall J, {k : nat -> nat |
  (forall j,  j <= J -> let k_j := k j in let r := t[*]p3m j in
   forall i, 1 <= i -> i <= n -> a i[*]r[^]i[-]eps [<=] a k_j[*]r[^]k_j)}}.
 Proof.
- (* begin hide *)
+ (** begin hide *)
 Proof.
  elim lem_1. intro t. intros H0 H1.
  elim H1. intros k_0 H2.
@@ -523,7 +523,7 @@ Proof.
  rewrite H26.
  auto.
 Qed.
-(* end hide *)
+(** end hide *)
 
 End Key_Lemma.
 

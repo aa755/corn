@@ -574,6 +574,6 @@ Proof.
  symmetry; apply zring_Q.
 Qed.
 
-(* begin hide *)
+(** begin hide *)
 Hint Rewrite sin_correct : IRtoCR.
-(* end hide *)
+(** end hide *)

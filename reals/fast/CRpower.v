@@ -297,7 +297,7 @@ Proof.
   apply CR_b_lowerBound.
  apply CR_b_upperBound.
 Qed.
-(* end hide *)
+(** end hide *)
 
 Instance: NatPowSpec CR N _.
 Proof.

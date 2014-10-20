@@ -265,11 +265,11 @@ Proof.
  eapply Derivative_imp_Continuous with (pI:=proper_DomArTanH).
  apply Derivative_ArTanH.
 Qed.
-(* begin hide *)
+(** begin hide *)
 Hint Resolve ArTanH_wd: algebra.
 Hint Resolve Continuous_ArTanH: continuous.
 Hint Resolve Derivative_ArTanH: derivate.
-(* end hide *)
+(** end hide *)
 (** Properties ofthe Inverse Hyperbolic Tangent Function. *)
 
 Lemma ArTanH_inv : forall x Hx Hx', ArTanH [--]x Hx[=][--](ArTanH x Hx').

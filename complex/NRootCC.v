@@ -230,9 +230,9 @@ Define [c2 := a[^]2[+]b[^]2], [c := sqrt c2], [a'2 := (c[+]a) [*]Half],
 Variables a b : IR.
 Hypothesis b_ : b [#] [0].
 
-(* begin hide *)
+(** begin hide *)
 Let c2 := a[^]2[+]b[^]2.
-(* end hide *)
+(** end hide *)
 
 Lemma nrCC1_c2pos : [0] [<] c2.
 Proof.
@@ -243,10 +243,10 @@ Proof.
  assumption.
 Qed.
 
-(* begin hide *)
+(** begin hide *)
 Let c := sqrt c2 (less_leEq _ _ _ nrCC1_c2pos).
 Let a'2 := (c[+]a) [*]Half.
-(* end hide *)
+(** end hide *)
 
 Lemma nrCC1_a'2pos : [0] [<] a'2.
 Proof.
@@ -266,10 +266,10 @@ Proof.
  apply pos_half.
 Qed.
 
-(* begin hide *)
+(** begin hide *)
 Let a' := sqrt a'2 (less_leEq _ _ _ nrCC1_a'2pos).
 Let b'2 := (c[-]a) [*]Half.
-(* end hide *)
+(** end hide *)
 
 Lemma nrCC1_b'2pos : [0] [<] b'2.
 Proof.
@@ -287,9 +287,9 @@ Proof.
   apply pos_half.
 Qed.
 
-(* begin hide *)
+(** begin hide *)
 Let b' := sqrt b'2 (less_leEq _ _ _ nrCC1_b'2pos).
-(* end hide *)
+(** end hide *)
 
 Lemma nrCC1_a3 : a'[^]2[-]b'[^]2 [=] a.
 Proof.
@@ -497,11 +497,11 @@ Section NRootCC_1_ap_imag.
 Variables a b : IR.
 Hypothesis a_ : a [#] [0].
 
-(* begin hide *)
+(** begin hide *)
 Let c' := (a[+I*]b) [*][--]II.
 Let a' := Re c'.
 Let b' := Im c'.
-(* end hide *)
+(** end hide *)
 
 Lemma nrootCC_1_ap_imag : {z : CC | z[^]2 [=] a[+I*]b}.
 Proof.
@@ -982,9 +982,9 @@ Hypothesis b_ : b [#] [0].
 Variable n : nat.
 Hypothesis n_ : odd n.
 
-(* begin hide *)
+(** begin hide *)
 Let c := a[+I*]b.
-(* end hide *)
+(** end hide *)
 
 Section NRootCC_4_solutions.
 
@@ -1276,11 +1276,11 @@ Hypothesis a_ : a [#] [0].
 Variable n : nat.
 Hypothesis n_ : odd n.
 
-(* begin hide *)
+(** begin hide *)
 Let c' := (a[+I*]b) [*]II.
 Let a' := Re c'.
 Let b' := Im c'.
-(* end hide *)
+(** end hide *)
 
 Lemma nrootCC_4_ap_real' : {z' : CC | z'[^]n [=] a'[+I*]b'}.
 Proof.

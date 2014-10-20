@@ -108,9 +108,9 @@ Proof.
  auto.
 Qed.
 
-(* begin hide *)
+(** begin hide *)
 Let a' := Build_CauchySeq _ a intervals_cauchy.
-(* end hide *)
+(** end hide *)
 
 Lemma Cnested_intervals_limit : {z : IR | forall i, a i [<=] z | forall i, z [<=] b i}.
 Proof.
@@ -256,11 +256,11 @@ Hypothesis f_b : [0] [<=] f b.
 %\end{convention}%
 *)
 
-(* begin hide *)
+(** begin hide *)
 Let Small : IR := Two [/]ThreeNZ.
 Let lft := (Two[*]a[+]b) [/]ThreeNZ.
 Let rht := (a[+]Two[*]b) [/]ThreeNZ.
-(* end hide *)
+(** end hide *)
 
 Lemma a_lft : a [<] lft.
 Proof.
@@ -340,9 +340,9 @@ Variable f : CSetoid_un_op IR.
 Hypothesis C_f_apzero_interval :
   forall a b, a [<] b -> {c : IR | a [<=] c /\ c [<=] b | f c [#] [0]}.
 
-(* begin hide *)
+(** begin hide *)
 Let Small : IR := Two [/]ThreeNZ.
-(* end hide *)
+(** end hide *)
 
 Record bisect_interval : Type :=
   {interval_lft     : IR;
@@ -397,9 +397,9 @@ Hypothesis a_b : a [<] b.
 Hypothesis f_a : f a [<=] [0].
 Hypothesis f_b : [0] [<=] f b.
 
-(* begin hide *)
+(** begin hide *)
 Let Small : IR := Two [/]ThreeNZ.
-(* end hide *)
+(** end hide *)
 
 Fixpoint interval_sequence (n : nat) : bisect_interval f :=
   match n with

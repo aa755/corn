@@ -49,9 +49,9 @@ polynomials over this ring.
 *)
 
 Variable R : CRing.
-(* begin hide *)
+(** begin hide *)
 Let RX := cpoly_cring R.
-(* end hide *)
+(** end hide *)
 
 Fixpoint monom (a : R) (n : nat) {struct n} : cpoly_cring R :=
   match n with
@@ -165,9 +165,9 @@ Implicit Arguments monom [R].
 Section Poly_Reverse.
 
 Variable R : CRing.
-(* begin hide *)
+(** begin hide *)
 Let RX := cpoly_cring R.
-(* end hide *)
+(** end hide *)
 
 Definition Rev (n : nat) (p : RX) :=
   Sum 0 n (fun i => monom (nth_coeff i p) (n - i)).

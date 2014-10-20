@@ -121,10 +121,10 @@ by [P] and [Q], respectively, the domains of [F] and [G].
 
 Variables F G : (PartFunct S).
 
-(* begin hide *)
+(** begin hide *)
 Let P := Dom F.
 Let Q := Dom G.
-(* end hide *)
+(** end hide *)
 
 Variable R : S -> CProp.
 

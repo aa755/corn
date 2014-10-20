@@ -883,10 +883,10 @@ Section Part_Function_Composition.
 
 Variables G F : PartFunct S.
 
-(* begin hide *)
+(** begin hide *)
 Let P := Dom F.
 Let Q := Dom G.
-(* end hide *)
+(** end hide *)
 Let R x := {Hx : P x | Q (F x Hx)}.
 
 Lemma part_function_comp_strext : forall x y (Hx : R x) (Hy : R y),
@@ -926,10 +926,10 @@ Variables S1 S2 S3 : CSetoid.
 Variable G : BinPartFunct S2 S3.
 Variable F : BinPartFunct S1 S2.
 
-(* begin hide *)
+(** begin hide *)
 Let P := BDom F.
 Let Q := BDom G.
-(* end hide *)
+(** end hide *)
 Let R x := {Hx : P x | Q (F x Hx)}.
 
 Lemma bin_part_function_comp_strext : forall x y (Hx : R x) (Hy : R y),

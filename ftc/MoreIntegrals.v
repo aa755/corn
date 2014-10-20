@@ -368,7 +368,7 @@ Hypothesis Hcb : Continuous_I Hcb' F.
 Hypothesis Habc : Continuous_I Habc' F.
 (* end show *)
 
-(* begin hide *)
+(** begin hide *)
 Let le_abc_ab : Min (Min a b) c [<=] Min a b.
 Proof.
  apply Min_leEq_lft.
@@ -513,7 +513,7 @@ Proof.
   apply le_abc_c.
  apply rht_leEq_Max.
 Qed.
-(* end hide *)
+(** end hide *)
 
 Lemma Integral_plus_Integral : Integral Hab [=] Integral Hac[+]Integral Hcb.
 Proof.

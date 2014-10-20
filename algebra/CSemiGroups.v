@@ -188,10 +188,10 @@ Section Part_Function_Plus.
 Variable G : CSemiGroup.
 Variables F F' : PartFunct G.
 
-(* begin hide *)
+(** begin hide *)
 Let P := Dom F.
 Let Q := Dom F'.
-(* end hide *)
+(** end hide *)
 
 Lemma part_function_plus_strext : forall x y (Hx : Conj P Q x) (Hy : Conj P Q y),
  F x (Prj1 Hx) [+]F' x (Prj2 Hx) [#] F y (Prj1 Hy) [+]F' y (Prj2 Hy) -> x [#] y.

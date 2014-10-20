@@ -56,10 +56,10 @@ such that [0 < n], [b_0 := b 0], [b_n := (b n) [=] [1]] and
 Variable b : nat -> CC.
 Variable n : nat.
 Hypothesis gt_n_0 : 0 < n.
-(* begin hide *)
+(** begin hide *)
 Let b_0 := b 0.
 Let b_n := b n.
-(* end hide *)
+(** end hide *)
 Hypothesis b_n_1 : b_n [=] [1].
 Variable c : IR.
 Hypothesis b_0_lt_c : AbsCC b_0 [<] c.
@@ -76,13 +76,13 @@ Hypothesis b_0_lt_c : AbsCC b_0 [<] c.
 %\end{convention}%
 *)
 
-(* begin hide *)
+(** begin hide *)
 Let two_n := 2 * n.
 Let Small := p3m n.
 Let Smaller := p3m (two_n * n).
 Let Smallest := Small[*]Smaller.
 Let q := [1][-]Smallest.
-(* end hide *)
+(** end hide *)
 
 Lemma b_0'_exists : forall eta : IR, [0] [<] eta -> {b_0' : CC | AbsCC (b_0'[-]b_0) [<=] eta | b_0' [#] [0]}.
 Proof.
@@ -197,16 +197,16 @@ Proof.
  apply pos_div_two; auto.
 Qed.
 
-(* begin hide *)
+(** begin hide *)
 Let a (i : nat) : IR := AbsCC (b i).
-(* end hide *)
+(** end hide *)
 
 Lemma z_exists : forall (b_0' : CC) (k : nat) (r eta : IR), let a_0 := AbsCC b_0' in
  [0] [<] a_0 -> [0] [<] a k -> 1 <= k -> k <= n -> [0] [<=] r -> [0] [<] eta ->
  AbsCC (b_0'[-]b_0) [<=] eta -> a k[*]r[^]k [<=] a_0 ->
  {z : CC | AbsCC z [=] r | AbsCC (b_0[+]b k[*]z[^]k) [<=] a_0[-]a k[*]r[^]k[+]eta}.
 Proof.
- (* begin hide *)
+ (** begin hide *)
  intros b_0' k r eta a_0 H H0 H1 H2 H3 H4 H5 H6.
  cut (AbsCC b_0' [#] [0]). intro H7.
   2: apply pos_ap_zero; auto.
@@ -299,7 +299,7 @@ Proof.
  apply mult_wdl.
  unfold cc_IR in |- *; simpl in |- *; split; simpl in |- *; rational.
 Qed.
-(* end hide *)
+(** end hide *)
 
 Lemma Kneser_1' : Half [<=] q.
 Proof.
@@ -399,7 +399,7 @@ Lemma Kneser_2b : forall (k : nat) (z : CC), 1 <= k ->
  let p_ := fun i => b i[*]z[^]i in
  Sum 0 n (fun i => b i[*]z[^]i) [=] b_0[+]b k[*]z[^]k[+] (Sum 1 (pred k) p_[+]Sum (S k) n p_).
 Proof.
- (* begin hide *)
+ (** begin hide *)
  intros.
  unfold p_ in |- *.
  unfold b_0 in |- *.
@@ -409,13 +409,13 @@ Proof.
   auto.
  rational.
 Qed.
-(* end hide *)
+(** end hide *)
 
 Lemma Kneser_2c : forall (m n : nat) (z : CC), m <= S n ->
  let r := AbsCC z in
  AbsCC (Sum m n (fun i => b i[*]z[^]i)) [<=] Sum m n (fun i => a i[*]r[^]i).
 Proof.
- (* begin hide *)
+ (** begin hide *)
  intros.
  unfold r in |- *.
  apply leEq_wdr with (Sum m n0 (fun i : nat => AbsCC (b i[*]z[^]i))).
@@ -425,14 +425,14 @@ Proof.
  unfold a in |- *.
  Step_final (AbsCC (b i) [*]AbsCC (z[^]i)).
 Qed.
-(* end hide *)
+(** end hide *)
 
 Lemma Kneser_2 : forall (k : nat) (z : CC), 1 <= k -> k <= n ->
  let r := AbsCC z in let p_ := fun i => a i[*]r[^]i in
  AbsCC (Sum 0 n (fun i => b i[*]z[^]i)) [<=]
   AbsCC (b_0[+]b k[*]z[^]k) [+] (Sum 1 (pred k) p_[+]Sum (S k) n p_).
 Proof.
- (* begin hide *)
+ (** begin hide *)
  intros.
  unfold p_, r in |- *.
  set (p_' := fun i : nat => b i[*]z[^]i) in *.
@@ -453,7 +453,7 @@ Proof.
  apply Kneser_2b.
  auto.
 Qed.
-(* end hide *)
+(** end hide *)
 Lemma Kneser_3 : {z : CC | AbsCC z[^]n [<=] c | AbsCC (Sum 0 n (fun i => b i[*]z[^]i)) [<] q[*]c}.
 Proof.
  elim eta_exists. intros eta H0 H1.

@@ -142,7 +142,7 @@ Section Module_Basics.
 
 Variable A : RModule R.
 
-(* begin hide *)
+(** begin hide *)
 
 Lemma mu0help : forall (a:R) (x:A), Zero[']x [=] a[']Zero[']x.
 Proof.
@@ -160,7 +160,7 @@ Qed.
 
 Hint Resolve mu0help2 : algebra.
 
-(* end hide *)
+(** end hide *)
 
 Lemma mu_zerox : forall x : A, Zero[']x [=] Zero.
 Proof.
@@ -210,7 +210,7 @@ Qed.
 
 Hint Resolve mu_azero mu_aminusx mu_minusax: algebra.
 
-(* begin hide *)
+(** begin hide *)
 
 Lemma mu_strext : forall (a1 a2:R)(x1 x2:A), a1[']x1[#]a2[']x2 ->
                   a1[#]a2 or x1[#]x2.
@@ -218,7 +218,7 @@ Proof.
  elim (rm_mu A); intuition.
 Qed.
 
-(* end hide *)
+(** end hide *)
 
 Lemma mu_axap0_aap0 : forall (a:R)(x:A), a[']x [#] (Zero:A) -> a [#] (Zero:R).
 Proof.
@@ -283,10 +283,10 @@ Record submod : Type :=
   {smpred :> wd_pred A;
    smproof:  is_submod smpred}.
 
-(* begin hide *)
+(** begin hide *)
 Variable sm : submod.
 Definition submod_as_CSetoid := Build_SubCSetoid A sm.
-(* end hide *)
+(** end hide *)
 
 Record is_comod (coP : wd_pred A) : CProp :=
   {cmapzero : forall x:A, coP x -> x[#]Zero;
@@ -297,10 +297,10 @@ Record comod : Type :=
   {cmpred :> wd_pred A;
    cmproof:  is_comod cmpred}.
 
-(* begin hide *)
+(** begin hide *)
 Variable cm : comod.
 Definition comod_as_CSetoid := Build_SubCSetoid A cm.
-(* end hide *)
+(** end hide *)
 
 End CoSubModules.
 

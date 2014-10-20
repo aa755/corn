@@ -240,7 +240,7 @@ Proof.
  apply le_lt_trans with (f n'); auto.
 Qed.
 
-(* begin hide *)
+(** begin hide *)
 Let mon_F' : forall m n : nat, f m < f n -> m < n.
 Proof.
  intros.
@@ -251,7 +251,7 @@ Proof.
   apply lt_not_le; auto.
  apply monF; assumption.
 Qed.
-(* end hide *)
+(** end hide *)
 
 Lemma conv_subseq_imp_conv_seq : Cauchy_prop seq1 -> Cauchy_prop seq2.
 Proof.

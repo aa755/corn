@@ -406,7 +406,7 @@ Definition fun_glb_IR F (P : IR -> CProp) a : CProp :=
 Definition fun_lub_IR F (P : IR -> CProp) a : CProp :=
  set_lub_IR (fun_image F P) a.
 
-(* begin hide *)
+(** begin hide *)
 Let aux_seq_lub (P : IR -> CProp) (H : totally_bounded P) :
   forall k : nat,
   Build_SubCSetoid IR
@@ -458,7 +458,7 @@ Proof.
   apply b; assumption.
  intro; apply scs_prf.
 Qed.
-(* end hide *)
+(** end hide *)
 
 (**
 The following are probably the most important results in this section.
@@ -579,7 +579,7 @@ Proof.
  exists (fun k : nat => scs_elem _ _ (aux_seq_lub P tot_bnd k)); auto.
 Qed.
 
-(* begin hide *)
+(** begin hide *)
 Let aux_seq_glb (P : IR -> CProp) (H : totally_bounded P) :
   forall k : nat,
   Build_SubCSetoid IR
@@ -632,7 +632,7 @@ Proof.
   apply b; assumption.
  intro; apply scs_prf.
 Qed.
-(* end hide *)
+(** end hide *)
 
 Lemma totally_bounded_has_glb : forall P : IR -> CProp,
  totally_bounded P -> {z : IR | set_glb_IR P z}.
@@ -794,9 +794,9 @@ a positive real number.
 
 Variables a b : IR.
 Hypothesis Hab : a [<=] b.
-(* begin hide *)
+(** begin hide *)
 Let I := compact a b Hab.
-(* end hide *)
+(** end hide *)
 
 Hypothesis Hab' : a [<] b.
 

@@ -62,7 +62,7 @@ Record MetricSpace : Type :=
 ; msp : is_MetricSpace msp_is_setoid ball
 }.
 
-(* begin hide *)
+(** begin hide *)
 Implicit Arguments ball [m].
 
 (*This is intended to be used as a ``type cast'' that Coq won't randomly make disappear.
@@ -74,7 +74,7 @@ Add Parametric Morphism (m:MetricSpace) : (@ball m) with signature QposEq ==> (@
 Proof.
  exact (@ball_wd m).
 Qed.
-(* end hide *)
+(** end hide *)
 
 Section Metric_Space.
 
@@ -150,9 +150,9 @@ Proof.
 Qed.
 
 End Metric_Space.
-(* begin hide *)
+(** begin hide *)
 Hint Resolve ball_refl ball_sym ball_triangle ball_weak : metric.
-(* end hide *)
+(** end hide *)
 
 (** We can easily generalize ball to take the ratio from Q or QnnInf: *)
 

@@ -78,6 +78,6 @@ Proof.
  autorewrite with QposElim.
  rewrite -> Qlt_minus_iff; ring_simplify; auto with *.
 Qed.
-(* begin hide *)
+(** begin hide *)
 Hint Resolve decidable_located located_stable : classification.
-(* end hide *)
+(** end hide *)

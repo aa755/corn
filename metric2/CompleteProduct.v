@@ -161,8 +161,8 @@ Qed.
 
 End CompleteProduct.
 
-(* begin hide *)
+(** begin hide *)
 Implicit Arguments Couple [X Y].
 Implicit Arguments Cfst [X Y].
 Implicit Arguments Csnd [X Y].
-(* end hide *)
+(** end hide *)

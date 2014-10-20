@@ -139,7 +139,7 @@ Definition proj2b_sig2T (A : Type) (P Q : A -> CProp) (e : sig2T A P Q) :=
 End Basics.
 
 
-(* begin hide *)
+(** begin hide *)
 Infix "or" := sum (at level 85, right associativity).
 
 Infix "and" := prod (at level 80, right associativity).
@@ -149,7 +149,7 @@ Notation "A 'IFF' B" := (Iff A B) (at level 95, no associativity).
 Notation ProjT1 := (proj1_sigT _ _).
 
 Notation ProjT2 := (proj2_sigT _ _).
-(* end hide *)
+(** end hide *)
 
 (**
 Some lemmas to make it possible to use [Step]
@@ -228,7 +228,7 @@ Proof.
   intros. reflexivity.
 Qed.
 
-(* begin hide *)
+(** begin hide *)
 (** This notation is incompatible with [Program]. It should be avoided *)
 Notation "{ x : A  |  P }" := (sigT (fun x : A => P):CProp)
   (at level 0, x at level 99) : type_scope.
@@ -236,7 +236,7 @@ Notation "{ x : A  |  P  |  Q }" :=
   (sig2T A (fun x : A => P) (fun x : A => Q)) (at level 0, x at level 99) :
   type_scope.
 
-(* end hide *)
+(** end hide *)
 
 Hint Resolve pair inl inr existT exist2T : core.
 
@@ -1268,9 +1268,9 @@ End Predicates_to_Prop.
 Similar results for integers.
 *)
 
-(* begin hide *)
+(** begin hide *)
 Tactic Notation "ElimCompare" constr(c) constr(d) :=  elim_compare c d.
-(* end hide *)
+(** end hide *)
 
 Definition Zlts (x y : Z) := eq (A:=Datatypes.comparison) (x ?= y)%Z Datatypes.Lt.
 

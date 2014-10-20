@@ -786,10 +786,10 @@ Variable X : CField.
 
 Variables F G : PartFunct X.
 
-(* begin hide *)
+(** begin hide *)
 Let P := Dom F.
 Let Q := Dom G.
-(* end hide *)
+(** end hide *)
 
 Section Part_Function_Recip.
 

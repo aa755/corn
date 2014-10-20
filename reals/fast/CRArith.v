@@ -84,26 +84,26 @@ Lemma CRopp_Qopp : forall (x:Q), - inject_Q_CR x == inject_Q_CR (- x)%Q.
 Proof.
  intros x e1 e2; apply ball_refl.
 Qed.
-(* begin hide *)
+(** begin hide *)
 Hint Rewrite CRopp_Qopp : CRfast_compute.
 Hint Rewrite <- CRopp_Qopp : toCRring.
-(* end hide *)
+(** end hide *)
 Lemma CRminus_Qminus : forall (x y:Q), inject_Q_CR x - inject_Q_CR y == inject_Q_CR (x - y)%Q.
 Proof.
  intros x y e1 e2; apply ball_refl.
 Qed.
-(* begin hide *)
+(** begin hide *)
 Hint Rewrite <- CRminus_Qminus : toCRring.
-(* end hide *)
+(** end hide *)
 Lemma CRmult_Qmult : forall (x y:Q), inject_Q_CR x * inject_Q_CR y == inject_Q_CR (x * y)%Q.
 Proof.
  intros x y.
  rewrite -> CRmult_scale.
  intros e1 e2; apply ball_refl.
 Qed.
-(* begin hide *)
+(** begin hide *)
 Hint Rewrite <- CRmult_Qmult : toCRring.
-(* end hide *)
+(** end hide *)
 Lemma Qap_CRap : forall (x y:Q), (~(x==y))%Q -> (' x)><(' y).
 Proof.
  intros x y Hxy.
@@ -154,9 +154,9 @@ Proof with auto.
  apply Qred_complete...
 Qed.
 
-(* begin hide *)
+(** begin hide *)
 Hint Rewrite <- CRinv_Qinv : toCRring.
-(* end hide *)
+(** end hide *)
 (**
 ** Ring
 CR forms a ring for the ring tactic.

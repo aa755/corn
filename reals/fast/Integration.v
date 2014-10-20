@@ -545,7 +545,7 @@ f o g is Lipschitz.  However Lipschitz functions haven't been
 formalized yet. *)
 
 Definition ComposeContinuous_raw (f:Q_as_MetricSpace-->CR) (z:LinfStepQ) : BoundedFunction := dist (uc_stdFun f ^@> z).
-(* begin hide *)
+(** begin hide *)
 Add Parametric Morphism f : (@ComposeContinuous_raw f) with signature (@st_eq _) ==> (@st_eq _) as ComposeContinuous_raw_wd.
 Proof.
  intros x1 x2 Hx.
@@ -553,7 +553,7 @@ Proof.
  rewrite -> Hx.
  reflexivity.
 Qed.
-(* end hide *)
+(** end hide *)
 Lemma ComposeContinuous_prf (f:Q_as_MetricSpace --> CR) :
  is_UniformlyContinuousFunction (ComposeContinuous_raw f) (mu f).
 Proof.

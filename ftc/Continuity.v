@@ -69,14 +69,14 @@ Here we define continuity and prove some basic properties of continuous function
 
 Variables a b : IR.
 Hypothesis Hab : a [<=] b.
-(* begin hide *)
+(** begin hide *)
 Let I := Compact Hab.
-(* end hide *)
+(** end hide *)
 
 Variable F : PartIR.
-(* begin hide *)
+(** begin hide *)
 Let P := Dom F.
-(* end hide *)
+(** end hide *)
 
 Definition Continuous_I := included I P and (forall e, [0] [<] e -> {d : IR | [0] [<] d |
  forall x y, I x -> I y -> forall Hx Hy, AbsIR (x[-]y) [<=] d -> AbsIR (F x Hx[-]F y Hy) [<=] e}).
@@ -102,9 +102,9 @@ Assume [F] to be continuous in [I].  Then it has a least upper bound and a great
 
 Hypothesis contF : Continuous_I.
 
-(* begin hide *)
+(** begin hide *)
 Let Hinc' := contin_imp_inc contF.
-(* end hide *)
+(** end hide *)
 
 Lemma Continuous_I_imp_tb_image : totally_bounded (fun_image F I).
 Proof.
@@ -373,16 +373,16 @@ We now state and prove some results about continuous functions.  Assume that [I]
 
 Variables a b : IR.
 Hypothesis Hab : a [<=] b.
-(* begin hide *)
+(** begin hide *)
 Let I := Compact Hab.
-(* end hide *)
+(** end hide *)
 
 Variables F G : PartIR.
 
-(* begin hide *)
+(** begin hide *)
 Let P := Dom F.
 Let Q := Dom G.
-(* end hide *)
+(** end hide *)
 
 Hypothesis incF : included (Compact Hab) P.
 Hypothesis incG : included (Compact Hab) Q.
@@ -813,16 +813,16 @@ Section Corolaries.
 
 Variables a b : IR.
 Hypothesis Hab : a [<=] b.
-(* begin hide *)
+(** begin hide *)
 Let I := Compact Hab.
-(* end hide *)
+(** end hide *)
 
 Variables F G : PartIR.
 
-(* begin hide *)
+(** begin hide *)
 Let P := Dom F.
 Let Q := Dom G.
-(* end hide *)
+(** end hide *)
 
 Hypothesis contF : Continuous_I Hab F.
 Hypothesis contG : Continuous_I Hab G.
@@ -902,9 +902,9 @@ Variables a b : IR.
 Hypothesis Hab : a [<=] b.
 Hypothesis Hab' : a [<] b.
 
-(* begin hide *)
+(** begin hide *)
 Let I := Compact Hab.
-(* end hide *)
+(** end hide *)
 
 Lemma Continuous_I_Sum0 : forall f : nat -> PartIR,
  (forall n, Continuous_I Hab (f n)) -> forall n, Continuous_I Hab (FSum0 n f).

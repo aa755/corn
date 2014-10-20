@@ -69,15 +69,15 @@ will be partial functions with domains respectively [P, P', Q, Q'] and
 Variables a b : IR.
 Hypothesis Hab' : a [<] b.
 
-(* begin hide *)
+(** begin hide *)
 Let Hab := less_leEq _ _ _ Hab'.
 Let I := Compact Hab.
-(* end hide *)
+(** end hide *)
 
 Variable F : PartIR.
-(* begin hide *)
+(** begin hide *)
 Let P := Dom F.
-(* end hide *)
+(** end hide *)
 
 Definition Derivative_I F' (P':=Dom F') := included I (Dom F) and included I (Dom F') and
  (forall e, [0] [<] e -> {d : IR | [0] [<] d | forall x y, I x -> I y -> forall Hx Hy Hx',
@@ -96,10 +96,10 @@ Section Basic_Properties.
 Variables a b : IR.
 Hypothesis Hab' : a [<] b.
 
-(* begin hide *)
+(** begin hide *)
 Let Hab := less_leEq _ _ _ Hab'.
 Let I := Compact Hab.
-(* end hide *)
+(** end hide *)
 
 (**
 Like we did for equality, we begin by stating a lemma that makes proofs of derivation easier in practice.
@@ -111,12 +111,12 @@ Lemma Derivative_I_char : forall F F' (P:=Dom F) (P':=Dom F'),
  AbsIR (x[-]y) [<=] d -> AbsIR (F y Hy[-]F x Hx[-]F' x Hx'[*] (y[-]x)) [<=] e[*]AbsIR (y[-]x)}) ->
  Derivative_I Hab' F F'.
 Proof.
- (* begin hide *)
+ (** begin hide *)
  unfold Hab in |- *.
  intros.
  repeat (split; auto).
 Qed.
-(* end hide *)
+(** end hide *)
 
 (**
 Derivative is a well defined relation; we will make this explicit for both arguments:
@@ -124,11 +124,11 @@ Derivative is a well defined relation; we will make this explicit for both argum
 
 Variables F G H : PartIR.
 
-(* begin hide *)
+(** begin hide *)
 Let P := Dom F.
 Let Q := Dom G.
 Let R := Dom H.
-(* end hide *)
+(** end hide *)
 
 Lemma Derivative_I_wdl : Feq I F G ->
  Derivative_I Hab' F H -> Derivative_I Hab' G H.
@@ -163,7 +163,7 @@ Proof.
  astepl (AbsIR (H y Hy[-]H x Hx[-]F x (incF x H5) [*] (y[-]x))); auto.
 Qed.
 
-(* begin hide *)
+(** begin hide *)
 Let Derivative_I_unique_lemma :
   forall x : IR,
   Compact Hab x ->
@@ -229,7 +229,7 @@ Proof.
   assumption.
  astepl (x[+][0]); apply plus_resp_less_lft; apply pos_div_two; assumption.
 Qed.
-(* end hide *)
+(** end hide *)
 
 (**
 Derivative is unique.

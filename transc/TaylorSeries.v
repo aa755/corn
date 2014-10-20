@@ -174,7 +174,7 @@ Hypothesis bndf : Taylor_bnd.
 
 Opaque nexp_op fact.
 
-(* begin hide *)
+(** begin hide *)
 Let H1 : forall n, Two[^]n [#] ZeroR.
 Proof.
  intro; apply nexp_resp_ap_zero; apply two_ap_zero.
@@ -341,7 +341,7 @@ Proof.
       nring_fac_ap_zero _ (S p)) a)).
  apply AbsIR_wd; algebra.
 Qed.
-(* end hide *)
+(** end hide *)
 
 (** The Taylor series always converges on the realline. *)
 
@@ -374,7 +374,7 @@ Proof.
  simpl in |- *; algebra.
 Qed.
 
-(* begin hide *)
+(** begin hide *)
 Lemma Taylor_majoration_lemma :
   forall (n : nat) (e : IR), [0] [<] e -> e[*] (nring n[/] _[//]H1 n) [<=] e.
 Proof.
@@ -438,7 +438,7 @@ Proof.
   2: apply AbsIR_mult_pos; auto.
  algebra.
 Qed.
-(* end hide *)
+(** end hide *)
 
 (**
 We now prove that, under our assumptions, it actually converges to the
@@ -574,7 +574,7 @@ Proof.
  apply AbsIR_nonneg.
 Qed.
 
-(* begin hide *)
+(** begin hide *)
 Lemma convergence_lemma :
   forall r : IR,
   conv_fun_seq'_IR realline
@@ -596,7 +596,7 @@ Proof.
   apply Exp_conv.
  split.
 Qed.
-(* end hide *)
+(** end hide *)
 
 Lemma bnd_imp_Taylor_bnd : forall (f : nat -> PartIR) (F : PartIR),
  (forall n x Hx Hx', AbsIR (f n x Hx) [<=] AbsIR (F x Hx')) -> Continuous realline F ->
@@ -637,9 +637,9 @@ Hypothesis bndg : Taylor_bnd g.
 Hypothesis Heq : forall n HaF HaG, f n a HaF [=] g n a HaG.
 (* end show *)
 
-(* begin hide *)
+(** begin hide *)
 Let Hf := Taylor_Series_conv_IR I F a I f derF bndf.
-(* end hide *)
+(** end hide *)
 
 Lemma Taylor_unique_crit : Feq realline F (FSeries_Sum Hf) -> Feq realline F G.
 Proof.
