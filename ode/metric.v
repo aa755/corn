@@ -427,6 +427,9 @@ Definition restrict (f : X -> Y) (x : X) (r : Q) : sig (ball r x) -> Y :=
 (* See the remark about llip_prf below about the loop between
 IsUniformlyContinuous and IsLocallyUniformlyContinuous *)
 
+(** The concept of local UC differs from UC in the way that
+  the [mu] function is now ([lmu]) and it additionally depends
+  on the point in the domain of the function.*)
 Class IsLocallyUniformlyContinuous (f : X -> Y) (lmu : X -> Q -> Q -> Qinf) :=
   luc_prf :> forall (x : X) (r : Q), IsUniformlyContinuous (restrict f x r) (lmu x r).
 

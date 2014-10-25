@@ -309,42 +309,44 @@ Proof.
  split.
   Included.
  intros e He.
+ (** derivative is being instantiated with half the
+    value of epsilon for continuity *)
  elim (derivFG _ (pos_div_two _ _ He)); intros d posd Hde; clear derivFG.
+ (** same delta is used *)
  exists d. auto. intros x y H0 H1 Hx Hy H2.
   set (Hx' := incF _ H0) in *.
  set (Hy' := incF _ H1) in *.
- apply equal_less_leEq with (a := ZeroR) (b := AbsIR (y[-]x)); intros.
-   3: apply AbsIR_nonneg.
-  apply mult_cancel_leEq with (AbsIR (y[-]x)); auto.
-  rstepr (e [/]TwoNZ[*]AbsIR (y[-]x) [+]e [/]TwoNZ[*]AbsIR (y[-]x)).
-  eapply leEq_wdl.
-   2: apply AbsIR_resp_mult.
-  apply leEq_wdl with (AbsIR (F y Hy'[-]F x Hx'[-]G x Hx[*] (y[-]x) [+]
-    (F x Hx'[-]F y Hy'[-]G y Hy[*] (x[-]y)))).
-   2: eapply eq_transitive_unfolded.
-    2: apply AbsIR_inv.
-   2: apply AbsIR_wd; rational.
-  eapply leEq_transitive.
-   apply triangle_IR.
-  apply plus_resp_leEq_both.
-   auto.
-  apply leEq_wdr with (e [/]TwoNZ[*]AbsIR (x[-]y)).
-   apply Hde; auto.
-   eapply leEq_wdl.
-    apply H2.
-   apply AbsIR_minus.
-  apply mult_wdr; apply AbsIR_minus.
- apply leEq_wdl with ZeroR.
+
+ (** [le] is defined as not [lt]. hence this works *)
+ apply equal_less_leEq 
+   with (a := ZeroR) (b := AbsIR (y[-]x)); intros; [| | apply AbsIR_nonneg; fail].
+- apply mult_cancel_leEq with (AbsIR (y[-]x)); auto.
+    rstepr (e [/]TwoNZ[*]AbsIR (y[-]x) [+]e [/]TwoNZ[*]AbsIR (y[-]x)).
+    eapply leEq_wdl; [|apply AbsIR_resp_mult; fail].
+    apply leEq_wdl with (AbsIR (F y Hy'[-]F x Hx'[-]G x Hx[*] (y[-]x) [+]
+    (F x Hx'[-]F y Hy'[-]G y Hy[*] (x[-]y))));
+    [ |eapply eq_transitive_unfolded;
+        [apply AbsIR_inv | apply AbsIR_wd; rational]];[].
+    eapply leEq_transitive.
+    apply triangle_IR.
+   apply plus_resp_leEq_both;[auto;fail|].
+   apply leEq_wdr with (e [/]TwoNZ[*]AbsIR (x[-]y)).
+   + apply Hde; auto.
+     eapply leEq_wdl;[apply H2; fail|].
+     apply AbsIR_minus.
+   + apply mult_wdr; apply AbsIR_minus.
+
+- apply leEq_wdl with ZeroR.
   apply less_leEq; auto.
- astepl (AbsIR [0]).
- apply AbsIR_wd.
- apply eq_symmetric_unfolded; apply x_minus_x.
- apply pfwdef.
- apply cg_inv_unique_2.
- apply AbsIR_eq_zero.
- apply eq_symmetric_unfolded; eapply eq_transitive_unfolded.
-  apply H3.
- apply AbsIR_minus.
+  astepl (AbsIR [0]).
+  apply AbsIR_wd.
+  apply eq_symmetric_unfolded; apply x_minus_x.
+  apply pfwdef.
+  apply cg_inv_unique_2.
+  apply AbsIR_eq_zero.
+  apply eq_symmetric_unfolded; eapply eq_transitive_unfolded.
+  + apply H3.
+  + apply AbsIR_minus.
 Qed.
 
 Lemma deriv_imp_contin_I : Derivative_I Hab' F G -> Continuous_I Hab'' F.
