@@ -294,11 +294,12 @@ Proof.
  inversion_clear H2; assumption.
 Qed.
 
+Variable Hab'' : a [<=] b.
+
 (**
-Any function that is or has a derivative is continuous.
+Any function that is a derivative is continuous.
 *)
 
-Variable Hab'' : a [<=] b.
 
 Lemma deriv_imp_contin'_I : Derivative_I Hab' F G -> Continuous_I Hab'' G.
 Proof.
@@ -319,24 +320,34 @@ Proof.
 
  (** [le] is defined as not [lt]. hence this works *)
  apply equal_less_leEq 
-   with (a := ZeroR) (b := AbsIR (y[-]x)); intros; [| | apply AbsIR_nonneg; fail].
-- apply mult_cancel_leEq with (AbsIR (y[-]x)); auto.
-    rstepr (e [/]TwoNZ[*]AbsIR (y[-]x) [+]e [/]TwoNZ[*]AbsIR (y[-]x)).
-    eapply leEq_wdl; [|apply AbsIR_resp_mult; fail].
-    apply leEq_wdl with (AbsIR (F y Hy'[-]F x Hx'[-]G x Hx[*] (y[-]x) [+]
-    (F x Hx'[-]F y Hy'[-]G y Hy[*] (x[-]y))));
+   with (a := ZeroR) (b := AbsIR (y[-]x)); intros; 
+        [| | apply AbsIR_nonneg; fail].
+- (** multiply both sides by [AbsIR (y[-]x))] to make it match with [Hde] *)
+   apply mult_cancel_leEq with (AbsIR (y[-]x)); auto.
+   (** rewrite with orall a, a = a/2 +a/2 in rhs of concl*)
+   rstepr (e [/]TwoNZ[*]AbsIR (y[-]x) [+]e [/]TwoNZ[*]AbsIR (y[-]x)).
+   (** Abs commutes over mult *)
+   eapply leEq_wdl; [|apply AbsIR_resp_mult; fail].
+
+   (** The step below is the key part of the proof. 
+       It adds and subtracts [F y Hy'[-]F x Hx'] in LHS
+       in order to split into 2 parts, both of
+       which are amenable to [Hde]. Note that [x] and [y] are
+       quantified in [Hde]. *)
+   apply leEq_wdl with (AbsIR (F y Hy'[-]F x Hx'[-]G x Hx[*] (y[-]x) [+]
+         (F x Hx'[-]F y Hy'[-]G y Hy[*] (x[-]y))));
     [ |eapply eq_transitive_unfolded;
         [apply AbsIR_inv | apply AbsIR_wd; rational]];[].
-    eapply leEq_transitive.
-    apply triangle_IR.
-   apply plus_resp_leEq_both;[auto;fail|].
+    eapply leEq_transitive;[apply triangle_IR; fail |].
+   apply plus_resp_leEq_both;[apply Hde; trivial; fail|].
    apply leEq_wdr with (e [/]TwoNZ[*]AbsIR (x[-]y)).
    + apply Hde; auto.
      eapply leEq_wdl;[apply H2; fail|].
      apply AbsIR_minus.
    + apply mult_wdr; apply AbsIR_minus.
 
-- apply leEq_wdl with ZeroR.
+- (* x[=]y so this step should be easy *)
+  apply leEq_wdl with ZeroR.
   apply less_leEq; auto.
   astepl (AbsIR [0]).
   apply AbsIR_wd.
@@ -348,6 +359,12 @@ Proof.
   + apply H3.
   + apply AbsIR_minus.
 Qed.
+
+(**
+Any function that HAS a derivative is continuous.
+The proof uses the above lemma that any function that IS a derivative
+is continuous
+*)
 
 Lemma deriv_imp_contin_I : Derivative_I Hab' F G -> Continuous_I Hab'' F.
 Proof.
