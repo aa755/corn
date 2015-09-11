@@ -735,9 +735,9 @@ Qed.
 (** exp on all real numbers.  [exp_bounded] should be used instead when [x]
 is known to be bounded by some intenger. *)
 Definition exp (x:CR) : CR := exp_bounded (Qceiling (approximate x ((1#1)%Qpos) + (1#1))) x.
-(** begin hide *)
+(* begin hide *)
 Implicit Arguments exp [].
-(** end hide *)
+(* end hide *)
 Lemma exp_bound_lemma : forall x : CR, (x <= ' (approximate x (1 # 1)%Qpos + 1)%Q)%CR.
 Proof.
  intros x.
@@ -769,9 +769,9 @@ Proof.
  rewrite -> IR_inj_Q_as_CR.
  apply exp_bound_lemma.
 Qed.
-(** begin hide *)
+(* begin hide *)
 Hint Rewrite exp_correct : IRtoCR.
-(** end hide *)
+(* end hide *)
 Lemma exp_bound_exp : forall (z:Z) (x:CR),
  (x <= 'z ->
   exp_bounded z x == exp x)%CR.
@@ -797,7 +797,7 @@ Proof.
  rewrite -> CRasIRasCR_id.
  assumption.
 Qed.
-(** begin hide *)
+(* begin hide *)
 Add Morphism exp with signature (@st_eq _) ==> (@st_eq _) as exp_wd.
 Proof.
  intros x y Hxy.
@@ -811,7 +811,7 @@ Proof.
  rewrite -> CRle_Qle.
  auto with *.
 Qed.
-(** end hide *)
+(* end hide *)
 Lemma exp_Qexp : forall x : Q, (exp (' x) = rational_exp x)%CR.
 Proof.
  intros x.
@@ -828,6 +828,6 @@ Proof.
   now rewrite E.
 Qed.
 
-(** begin hide *)
+(* begin hide *)
 Hint Rewrite exp_Qexp : CRfast_compute.
-(** end hide *)
+(* end hide *)

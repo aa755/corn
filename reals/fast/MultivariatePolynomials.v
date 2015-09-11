@@ -53,7 +53,7 @@ end.
 
 End MultivariatePolynomial.
 
-(** begin hide *)
+(* begin hide *)
 Add Parametric Morphism F n : (@MVP_apply F n) with signature (@st_eq (MultivariatePolynomial F n)) ==> (@eq _) ==> (@st_eq _) as MVP_apply_wd.
 Proof.
  induction n; intros x y Hxy z.
@@ -63,7 +63,7 @@ Proof.
  rewrite -> Hxy.
  reflexivity.
 Qed.
-(** end hide *)
+(* end hide *)
 
 (* Multivariable polynomial application by a constant set of inputs is a ring homomorphism. *)
 
@@ -198,7 +198,7 @@ match v with
 | Vector.cons a _ v' => 0 <= a <= 1 /\ UnitHyperInterval v'
 end.
 
-(** begin hide *)
+(* begin hide *)
 Lemma BernsteinApplyRingHom : forall R F (eta: RingHom R F) n i (H:(i <= n)%nat) a,
  (Bernstein F H) ! (eta a)[=](eta (Bernstein R H) ! a).
 Proof.
@@ -224,7 +224,7 @@ Proof.
  rewrite -> BernsteinApplyRingHom.
  auto with *.
 Qed.
-(** end hide *)
+(* end hide *)
 
 (** Return the ith entry of a vector *)
 Fixpoint Vector_ix A (n i:nat) (H:(i < n)%nat) (v:Vector.t A n) : A :=

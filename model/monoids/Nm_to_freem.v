@@ -46,13 +46,13 @@ Section p70text.
 
 Let A:= (CSetoid_of_less 1).
 
-(** begin hide *)
+(* begin hide *)
 Let ZerolessOne: 0<1.
 Proof.
  intuition.
 Qed.
 
-(** end hide *)
+(* end hide *)
 
 Fixpoint to_word (n:nat):(list (F 1)):=
 match n with

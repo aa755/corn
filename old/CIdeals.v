@@ -68,10 +68,10 @@ Record ideal : Type :=
   { idpred :> wd_pred R;
     idproof : is_ideal idpred}.
 
-(** begin hide *)
+(* begin hide *)
 Variable I : ideal.
 Definition ideal_as_CSetoid := Build_SubCSetoid R I.
-(** end hide *)
+(* end hide *)
 
 (**
 We actually define strongly non-trivival co-ideals.
@@ -87,10 +87,10 @@ Record coideal : Type :=
   { cipred :> wd_pred R;
     ciproof : is_coideal cipred}.
 
-(** begin hide *)
+(* begin hide *)
 Variable C : coideal.
 Definition coideal_as_CSetoid := Build_SubCSetoid R C.
-(** end hide *)
+(* end hide *)
 
 End Ideals.
 

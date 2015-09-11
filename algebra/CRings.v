@@ -198,9 +198,9 @@ Section Ring_unfolded.
 %\end{convention}%
 *)
 Variable R : CRing.
-(** begin hide *)
+(* begin hide *)
 Let mmR := Build_multCMonoid R.
-(** end hide *)
+(* end hide *)
 
 Lemma mult_assoc_unfolded : forall x y z : R, x[*] (y[*]z) [=] x[*]y[*]z.
 Proof mult_assoc R.
@@ -1214,10 +1214,10 @@ Variable R : CRing.
 
 Variables F G : PartFunct R.
 
-(** begin hide *)
+(* begin hide *)
 Let P := Dom F.
 Let Q := Dom G.
-(** end hide *)
+(* end hide *)
 
 Section Part_Function_Mult.
 
@@ -1302,9 +1302,9 @@ Variable R : CRing.
 
 Variable F : PartFunct R.
 
-(** begin hide *)
+(* begin hide *)
 Let P := Dom F.
-(** end hide *)
+(* end hide *)
 
 Variable R':R -> CProp.
 

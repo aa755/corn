@@ -574,16 +574,16 @@ A sequence in a metric space has at most one limit.
 *)
 Implicit Arguments MSseqLimit [X].
 
-(** begin hide *)
+(* begin hide *)
 Lemma nz : forall n m : nat, n <= max n m.
 Proof.
  intro n.
  intro m.
  intuition.
 Qed.
-(** end hide *)
+(* end hide *)
 
-(** begin hide *)
+(* begin hide *)
 Lemma d_wd :
  forall (X : CPsMetricSpace) (a b c : X), a[=]b -> a[-d]c[=]b[-d]c.
 Proof.
@@ -604,7 +604,7 @@ Proof.
   exact H1.
  apply csbf_strext.
 Qed.
-(** end hide *)
+(* end hide *)
 
 Lemma unique_MSseqLim :
  forall (X : CMetricSpace) (seq : nat -> X) (a b : X),

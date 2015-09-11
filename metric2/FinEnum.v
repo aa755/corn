@@ -108,9 +108,9 @@ Proof.
  right.
  apply IHl1.
 Qed.
-(** begin hide *)
+(* begin hide *)
 Hint Resolve InFinEnumC_app_l InFinEnumC_app_r.
-(** end hide *)
+(* end hide *)
 Lemma InFinEnumC_app_orC : forall x l1 l2, InFinEnumC x (l1 ++ l2) -> orC (InFinEnumC x l1)  (InFinEnumC x l2).
 Proof.
  intros x l1 l2 H.
@@ -164,9 +164,9 @@ Proof.
  intros a b c H0 H1 x.
  transitivity (InFinEnumC x b); auto.
 Qed.
-(** begin hide *)
+(* begin hide *)
 Hint Resolve FinEnum_eq_refl FinEnum_eq_sym FinEnum_eq_trans : FinEnum.
-(** end hide *)
+(* end hide *)
 
 Lemma FinEnum_is_Setoid : Setoid_Theory _ FinEnum_eq.
 Proof.
@@ -564,9 +564,9 @@ Defined.
 End Strong.
 
 End Finite.
-(** begin hide *)
+(* begin hide *)
 Implicit Arguments InFinEnumC [X].
-(** end hide *)
+(* end hide *)
 (** A list is equivalent to it's reverse as finite enumerations *)
 Lemma FinEnum_eq_rev : forall X (stable: stableMetric X) (f:FinEnum stable),
  st_eq f (rev f).
@@ -670,9 +670,9 @@ Proof.
  apply orWeaken.
  right; assumption.
 Qed.
-(** begin hide *)
+(* begin hide *)
 Implicit Arguments FinEnum_map_uc [X Y].
-(** end hide *)
+(* end hide *)
 Definition FinEnum_map z X Y (SX:stableMetric X) (SY:stableMetric Y) (f:X --> Y) :=
  Build_UniformlyContinuousFunction (FinEnum_map_uc z SX SY f).
 

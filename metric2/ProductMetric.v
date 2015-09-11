@@ -192,7 +192,7 @@ Defined.
 Definition PairMS (x:X) (y:Y) : ProductMS := (x,y).
 
 End ProductMetric.
-(** begin hide *)
+(* begin hide *)
 Implicit Arguments PairMS [X Y].
 
 Add Parametric Morphism X Y : (@PairMS X Y) with signature (@st_eq _) ==> (@st_eq _) ==> (@st_eq _) as PairMS_wd.
@@ -200,7 +200,7 @@ Proof.
  intros.
  split; assumption.
 Qed.
-(** end hide *)
+(* end hide *)
 Open Local Scope uc_scope.
 
 (** [together] forms the tensor of two functions operating between

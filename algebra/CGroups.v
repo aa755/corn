@@ -536,10 +536,10 @@ Variable G : CGroup.
 
 Variables F F' : PartFunct G.
 
-(** begin hide *)
+(* begin hide *)
 Let P := Dom F.
 Let Q := Dom F'.
-(** end hide *)
+(* end hide *)
 
 Section Part_Function_Inv.
 

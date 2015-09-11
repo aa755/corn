@@ -101,10 +101,10 @@ by [P] and [Q], respectively, the domains of [F] and [G].
 Variable I : IR -> CProp.
 Variables F G : PartIR.
 
-(** begin hide *)
+(* begin hide *)
 Let P := Dom F.
 Let Q := Dom G.
-(** end hide *)
+(* end hide *)
 
 Variable R : IR -> CProp.
 
@@ -181,9 +181,9 @@ the domain of [F].
 
 Variable I : IR -> CProp.
 Variable F : PartIR.
-(** begin hide *)
+(* begin hide *)
 Let P := Dom F.
-(** end hide *)
+(* end hide *)
 
 Definition bnd_away_zero := included I P and {c : IR | [0] [<] c |
   forall y Hy, (I y) -> c [<=] AbsIR (F y Hy)}.
@@ -310,10 +310,10 @@ This tactic splits a goal of the form [Feq I F G] into the three subgoals
 and applies [Included] to the first two and [rational] to the third.
 *)
 
-(** begin hide *)
+(* begin hide *)
 Ltac FEQ := apply eq_imp_Feq;
    [ Included | Included | intros; try (simpl in |- *; rational) ].
-(** end hide *)
+(* end hide *)
 
 Section More_on_Equality.
 
@@ -537,9 +537,9 @@ equality relation.
 *)
 
 Variable F : PartIR.
-(** begin hide *)
+(* begin hide *)
 Let P := Dom F.
-(** end hide *)
+(* end hide *)
 
 Variable Q : IR -> CProp.
 Hypothesis H : included Q (fun x : IR => True).
@@ -578,9 +578,9 @@ is included in the domain of [F].
 
 Variables a b : IR.
 Hypothesis Hab : a [<=] b.
-(** begin hide *)
+(* begin hide *)
 Let I := compact a b Hab.
-(** end hide *)
+(* end hide *)
 
 Variable F : PartIR.
 Hypothesis incF : included I (Dom F).

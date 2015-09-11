@@ -33,7 +33,7 @@
  * with this work; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *)
-(** begin hide *)
+(* begin hide *)
 Require Export Q_in_CReals.
 
 
@@ -917,4 +917,4 @@ Qed.
 
 End Rational_sequence.
 
-(** end hide *)
+(* end hide *)

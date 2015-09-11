@@ -52,7 +52,7 @@ We now begin to work with partial functions.  We begin by stating and proving Ro
 %\end{convention}%
 *)
 
-(** begin hide *)
+(* begin hide *)
 Variables a b : IR.
 Hypothesis Hab' : a [<] b.
 
@@ -64,13 +64,13 @@ Variables F F' : PartIR.
 Hypothesis derF : Derivative_I Hab' F F'.
 Hypothesis Ha : Dom F a.
 Hypothesis Hb : Dom F b.
-(** end hide *)
+(* end hide *)
 
 (* begin show *)
 Hypothesis Fab : F a Ha [=] F b Hb.
 (* end show *)
 
-(** begin hide *)
+(* begin hide *)
 Variable e : IR.
 Hypothesis He : [0] [<] e.
 
@@ -532,7 +532,7 @@ Proof.
   apply pos_div_two; assumption.
  apply H.
 Qed.
-(** end hide *)
+(* end hide *)
 
 Theorem Rolle : {x : IR | I x | forall Hx, AbsIR (F' x Hx) [<=] e}.
 Proof.
@@ -566,10 +566,10 @@ The following is a simple corollary:
 Variables a b : IR.
 Hypothesis Hab' : a [<] b.
 
-(** begin hide *)
+(* begin hide *)
 Let Hab := less_leEq _ _ _ Hab'.
 Let I := Compact Hab.
-(** end hide *)
+(* end hide *)
 
 Variables F F' : PartIR.
 
@@ -627,9 +627,9 @@ We can also state these theorems without expliciting the derivative of [F].
 Variables a b : IR.
 Hypothesis Hab' : a [<] b.
 
-(** begin hide *)
+(* begin hide *)
 Let Hab := less_leEq _ _ _ Hab'.
-(** end hide *)
+(* end hide *)
 Variable F : PartIR.
 
 (* begin show *)
@@ -681,10 +681,10 @@ Variables F F' : PartIR.
 Hypothesis derF : Derivative I pI F F'.
 (* end show *)
 
-(** begin hide *)
+(* begin hide *)
 Let incF := Derivative_imp_inc _ _ _ _ derF.
 Let incF' := Derivative_imp_inc' _ _ _ _ derF.
-(** end hide *)
+(* end hide *)
 
 Theorem Law_of_the_Mean : forall a b, I a -> I b -> forall e, [0] [<] e ->
  {x : IR | Compact (Min_leEq_Max a b) x | forall Ha Hb Hx,

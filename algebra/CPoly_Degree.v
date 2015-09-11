@@ -52,9 +52,9 @@ Section Degree_def.
 
 Variable R : CRing.
 
-(** begin hide *)
+(* begin hide *)
 Notation RX := (cpoly_cring R).
-(** end hide *)
+(* end hide *)
 (**
 The length of a polynomial is the number of its coefficients. This is
 a syntactical property, as the highest coefficient may be [0]. Note that
@@ -110,9 +110,9 @@ Variable R : CRing.
 
 Add Ring R: (CRing_Ring R).
 
-(** begin hide *)
+(* begin hide *)
 Notation RX := (cpoly_cring R).
-(** end hide *)
+(* end hide *)
 
 Lemma degree_le_wd : forall (p p' : RX) n,
  p [=] p' -> degree_le n p -> degree_le n p'.
@@ -590,9 +590,9 @@ polynomials over [F].
 
 Variable F : CField.
 
-(** begin hide *)
+(* begin hide *)
 Notation FX := (cpoly_cring F).
-(** end hide *)
+(* end hide *)
 
 Lemma degree_mult : forall (p q : FX) m n,
  degree m p -> degree n q -> degree (m + n) (p[*]q).

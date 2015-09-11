@@ -221,7 +221,7 @@ Proof.
  exact H0.
 Qed.
 
-(** begin hide *)
+(* begin hide *)
 
 Lemma k_zero:forall (k i l:nat),
 Not (0<k or 0=k and i<l)-> k=0.
@@ -270,4 +270,4 @@ Proof.
 Qed.
 
 
-(** end hide *)
+(* end hide *)

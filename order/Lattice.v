@@ -34,7 +34,7 @@ Record Lattice : Type :=
 ; join : sl -> sl -> sl
 ; l_proof : is_SemiLattice (Dual sl) join
 }.
-(** begin hide *)
+(* begin hide *)
 Implicit Arguments join [l].
 (* end hide*)
 Section Join.
@@ -93,12 +93,12 @@ Lemma join_le_compat : forall w x y z : X, w<=y -> x<=z -> join w x <= join y z.
 Proof fun w x y z => meet_le_compat Dual y z w x.
 
 End Join.
-(** begin hide *)
+(* begin hide *)
 Add Parametric Morphism X : (@join X) with signature (@st_eq (sl X)) ==> (@st_eq X) ==> (@st_eq X) as join_compat.
 Proof.
  exact (meet_compat (Dual X)).
 Qed.
-(** end hide *)
+(* end hide *)
 Section MeetJoin.
 
 Variable X : Lattice.

@@ -70,7 +70,7 @@ Proof.
   apply (TotalOrder.Default.max_def1 _ _ _ Qpos_eq_le_def Qpos_le_total).
  apply (TotalOrder.Default.max_def2 _ _ _ Qpos_eq_le_def Qpos_le_total).
 Defined.
-(** begin hide *)
+(* begin hide *)
 Add Morphism Qpos_min : Qpos_min_compat.
 Proof.
  exact (@meet_compat QposTotalOrder).
@@ -80,7 +80,7 @@ Add Morphism Qpos_max : Qpos_max_compat.
 Proof.
  exact (@join_compat QposTotalOrder).
 Qed.
-(** end hide *)
+(* end hide *)
 Section QTotalOrder.
 
 Let Qto := QposTotalOrder.
@@ -208,9 +208,9 @@ Proof.
  destruct (Qpos_le_total x y) as [H|H]; destruct (Qle_total x y) as [H0|H0]; try reflexivity;
    apply Qle_antisym; auto.
 Qed.
-(** begin hide *)
+(* begin hide *)
 Hint Rewrite Q_Qpos_min : QposElim.
-(** end hide *)
+(* end hide *)
 Lemma Q_Qpos_max : forall (x y:Qpos), ((Qpos_max x y)%Qpos:Q)==Qmax (x:Q) (y:Q).
 Proof.
  intros x y.
@@ -220,9 +220,9 @@ Proof.
  destruct (Qpos_le_total y x) as [H|H]; destruct (Qle_total y x) as [H0|H0]; try reflexivity;
    apply Qle_antisym; auto.
 Qed.
-(** begin hide *)
+(* begin hide *)
 Hint Rewrite Q_Qpos_max : QposElim.
-(** end hide *)
+(* end hide *)
 
 Lemma Qpos_min_mult_distr_r : forall x y z : Qpos, Qpos_mult  x (Qpos_min y z) == Qpos_min (Qpos_mult x y) (Qpos_mult x z).
 Proof. intros x y z. autorewrite with QposElim. apply Qmin_mult_pos_distr_r. auto. Qed.

@@ -357,7 +357,7 @@ Qed.
 
 End RegularFunction.
 
-(** begin hide *)
+(* begin hide *)
 Implicit Arguments regFunEq_e_small [X].
 Implicit Arguments is_RegularFunction [X].
 
@@ -367,7 +367,7 @@ Add Parametric Morphism X : (@Cunit_fun X) with signature (@st_eq _) ==> (@st_eq
 Proof.
  exact (@uc_wd _ _ Cunit).
 Qed.
-(** end hide *)
+(* end hide *)
 
 (** If two functions between complete metric spaces are equal on the images
 of [Cunit], then they are equal everywhere *)
@@ -988,7 +988,7 @@ Qed.
 
 End Strong_Monad.
 
-(** begin hide *)
+(* begin hide *)
 Opaque Complete.
 
 Add Parametric Morphism X Y : (@Cmap_slow_fun X Y) with signature (@st_eq _) ==> (@st_eq _) ==> (@st_eq _) as Cmap_slow_wd.
@@ -1016,7 +1016,7 @@ Proof.
  apply:(@uc_wd _ _ (Cap_slow X Y));assumption.
 Qed.
 Transparent Complete.
-(** end hide *)
+(* end hide *)
 
 (** A binary version of map *)
 Definition Cmap2_slow (X Y Z:MetricSpace) (f:X --> Y --> Z) := uc_compose (@Cap_slow Y Z) (Cmap_slow f).

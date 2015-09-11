@@ -264,20 +264,20 @@ Proof.
   intros. reflexivity.
 Qed.
 
-(** begin hide *)
+(* begin hide *)
 Set Implicit Arguments.
 Unset Strict Implicit.
-(** end hide *)
+(* end hide *)
 
 (**
 ** Some results about [Z]
 
 We consider the injection [inject_nat] from [nat] to [Z] as a
 coercion. *)
-(** begin hide *)
+(* begin hide *)
 Coercion Zpos : positive >-> Z.
 Coercion Z_of_nat : nat >-> Z.
-(** end hide *)
+(* end hide *)
 
 Lemma POS_anti_convert : forall n : nat, S n = Zpos (P_of_succ_nat n) :>Z.
 Proof.
@@ -535,10 +535,10 @@ Proof.
  auto.
 Qed.
 
-(** begin hide *)
+(* begin hide *)
 Set Implicit Arguments.
 Unset Strict Implicit.
-(** end hide *)
+(* end hide *)
 
 Definition caseZ_diff (A : Type) (z : Z) (f : nat -> nat -> A) :=
   match z with
@@ -547,10 +547,10 @@ Definition caseZ_diff (A : Type) (z : Z) (f : nat -> nat -> A) :=
   | Zneg m => f 0 (nat_of_P m)
   end.
 
-(** begin hide *)
+(* begin hide *)
 Set Strict Implicit.
 Unset Implicit Arguments.
-(** end hide *)
+(* end hide *)
 
 Lemma caseZ_diff_O : forall (A : Type) (f : nat -> nat -> A), caseZ_diff 0 f = f 0 0.
 Proof.
@@ -949,9 +949,9 @@ match n with
  O => nil
 |S m => z :: (iterateN A f (f z) m)
 end.
-(** begin hide *)
+(* begin hide *)
 Implicit Arguments iterateN [A].
-(** end hide *)
+(* end hide *)
 Lemma iterateN_f : forall A f (z:A) n, iterateN f (f z) n = map f (iterateN f z n).
 Proof.
  intros A f z n.

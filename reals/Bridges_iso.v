@@ -33,7 +33,7 @@
  * with this work; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *)
-(** begin hide *)
+(* begin hide *)
 (* file        : bridges_gives_our.v                               *)
 (* version     : 1.50 - 09/05/2001                                 *)
 (* version     : 1.00 - 09/03/2001                                 *)
@@ -1742,5 +1742,5 @@ Definition Bridges_R_as_CReals :=
 
 
 End bridges_axioms_imply_ours.
-(** end hide *)
+(* end hide *)
 (** remove printing Q *)

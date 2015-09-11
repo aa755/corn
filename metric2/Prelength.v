@@ -511,7 +511,7 @@ Proof.
  apply: Cap_fun_correct.
 Qed.
 
-(** begin hide *)
+(* begin hide *)
 Add Parametric Morphism X Y plX : (@Cmap_fun X Y plX) with signature (@st_eq _) ==> (@st_eq _) ==> (@st_eq _) as Cmap_wd.
 Proof.
  intros x1 x2 Hx y1 y2 Hy.
@@ -537,7 +537,7 @@ Proof.
  generalize y2.
  apply: (@uc_wd _ _ (Cap Y H));assumption.
 Qed.
-(** end hide *)
+(* end hide *)
 
 (** Similarly we define a new [Cmap2]. *)
 Definition Cmap2 (X Y Z:MetricSpace) (Xpl : PrelengthSpace X) (Ypl : PrelengthSpace Y) f := uc_compose (@Cap Y Z Ypl) (Cmap Xpl f).

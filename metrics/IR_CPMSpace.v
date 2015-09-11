@@ -115,7 +115,7 @@ Proof.
  apply cg_minus_correct.
 Qed.
 
-(** begin hide *)
+(* begin hide *)
 Lemma IR_tri_ineq : forall a b : IR, AbsIR (a[+]b)[<=]AbsIR a[+]AbsIR b.
 Proof.
  intros a b.
@@ -152,7 +152,7 @@ Proof.
   apply AbsIR_nonneg.
  apply AbsIR_nonneg.
 Qed.
-(** end hide *)
+(* end hide *)
 
 Lemma dIR_tri_ineq : tri_ineq dIR_as_CSetoid_fun.
 Proof.

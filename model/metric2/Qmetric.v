@@ -141,7 +141,7 @@ Proof.
  rewrite <- (QposAsmkQpos H0).
  apply (H (mkQpos H0)).
 Qed.
-(** begin hide *)
+(* begin hide *)
 Add Morphism Qball with signature QposEq ==> Qeq ==> Qeq ==> iff as Qball_wd.
 Proof.
  intros [x1 Hx1] [x2 Hx2] H x3 x4 H0 x5 x6 H1.
@@ -155,7 +155,7 @@ Proof.
  rewrite -> H.
  tauto.
 Qed.
-(** end hide *)
+(* end hide *)
 Definition Q_as_MetricSpace : MetricSpace :=
 @Build_MetricSpace QS _ Qball_wd Q_is_MetricSpace.
 

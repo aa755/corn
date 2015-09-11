@@ -58,11 +58,11 @@ define the nth order derivative of [F] in the interval
 Variables a b : IR.
 Hypothesis Hap : a [#] b.
 
-(** begin hide *)
+(* begin hide *)
 Let Hab' := ap_imp_Min_less_Max _ _ Hap.
 Let Hab := less_leEq _ _ _ Hab'.
 Let I := Compact Hab.
-(** end hide *)
+(* end hide *)
 
 Variable F : PartIR.
 Hypothesis Ha : Dom F a.
@@ -78,7 +78,7 @@ This last local definition is simply:
 $f_i=f^{(i)}$#f<sub>i</sub>=f<sup>(i)</sup>#.
 *)
 
-(** begin hide *)
+(* begin hide *)
 Lemma Taylor_lemma1 : forall n Hf i Hi,
  Derivative_I_n Hab' i F (PartInt (fi n Hf i Hi)).
 Proof.
@@ -86,7 +86,7 @@ Proof.
  unfold fi in |- *.
  apply projT2.
 Qed.
-(** end hide *)
+(* end hide *)
 
 (**
 Now we can define the Taylor sequence around [a].  The auxiliary
@@ -97,19 +97,19 @@ We denote by [A] and [B] the elements of [[Min(a,b),Max(a,b)]]
 corresponding to [a] and [b].
 *)
 
-(** begin hide *)
+(* begin hide *)
 Let TL_compact_a := compact_Min_lft _ _ Hab.
 Let TL_compact_b := compact_Min_rht _ _ Hab.
 
 Notation A := (Build_subcsetoid_crr IR _ _ TL_compact_a).
 Notation B := (Build_subcsetoid_crr IR _ _ TL_compact_b).
-(** end hide *)
+(* end hide *)
 
 (* begin show *)
 Let funct_i n Hf i Hi := [-C-] (fi n Hf i Hi A [/] _[//] nring_fac_ap_zero _ i) {*} (FId{-} [-C-]a) {^}i.
 (* end show *)
 
-(** begin hide *)
+(* begin hide *)
 Let funct_i' n Hf i Hi := PartInt (fi n Hf i Hi) {*}
  [-C-] ([1][/] _[//]nring_fac_ap_zero IR i) {*} ( [-C-]b{-}FId) {^}i.
 
@@ -202,7 +202,7 @@ Proof.
   astepr x; auto.
  astepl x; auto.
 Qed.
-(** end hide *)
+(* end hide *)
 
 (**
 Adding the previous expressions up to a given bound [n] gives us the
@@ -211,7 +211,7 @@ Taylor sum of order [n].
 
 Definition Taylor_seq' n Hf := FSumx _ (funct_i n Hf).
 
-(** begin hide *)
+(* begin hide *)
 Let Taylor_seq'_aux n Hf := FSumx _ (funct_i' n Hf).
 
 Lemma TL_lemma_a : forall n Hf, Dom (Taylor_seq' n Hf) a.
@@ -222,7 +222,7 @@ Proof.
   repeat split.
  repeat split.
 Qed.
-(** end hide *)
+(* end hide *)
 
 (**
 It is easy to show that [b] is in the domain of this series, which allows us to write down the Taylor remainder around [b].
@@ -237,7 +237,7 @@ Proof.
  repeat split.
 Qed.
 
-(** begin hide *)
+(* begin hide *)
 Lemma TL_lemma_a' : forall n Hf, Dom (Taylor_seq'_aux n Hf) a.
 Proof.
  intros.
@@ -271,11 +271,11 @@ Proof.
   apply TL_b_i'.
  apply TL_b_i'.
 Qed.
-(** end hide *)
+(* end hide *)
 
 Definition Taylor_rem n Hf := F b Hb[-]Taylor_seq' n Hf b (TL_lemma_b n Hf).
 
-(** begin hide *)
+(* begin hide *)
 Let g n Hf Hab := [-C-] (F b Hb) {-}Taylor_seq'_aux n Hf{-}
  [-C-] (Taylor_rem n Hf) {*} (( [-C-]b{-}FId) {*} [-C-] ([1][/] (b[-]a) [//]Hab)).
 
@@ -665,7 +665,7 @@ Proof.
 Qed.
 
 Transparent Taylor_rem funct_aux.
-(** end hide *)
+(* end hide *)
 
 (**
 Now Taylor's theorem.
@@ -677,7 +677,7 @@ Now Taylor's theorem.
 Variable e : IR.
 Hypothesis He : [0] [<] e.
 
-(** begin hide *)
+(* begin hide *)
 Lemma Taylor_lemma11 : forall n Hf Hf' H, {c : IR | I c |
   forall Hc, AbsIR (g' n Hf Hf' H c Hc) [<=] e[*]AbsIR ([1][/] (b[-]a) [//]H)}.
 Proof.
@@ -746,21 +746,21 @@ Proof.
   exact (Taylor_lemma3' _ _ _ _ H0 _ _ _ _ H1 H3).
  unfold I in |- *; apply compact_inc_lft.
 Qed.
-(** end hide *)
+(* end hide *)
 
 (* begin show *)
 Let deriv_Sn' n Hf' :=
  n_deriv_I _ _ Hab' (S n) F Hf'{*} [-C-] ([1][/] _[//]nring_fac_ap_zero _ n) {*} ( [-C-]b{-}FId) {^}n.
 (* end show *)
 
-(** begin hide *)
+(* begin hide *)
 Lemma TLH : b[-]a [#] [0].
 Proof.
  rstepl ( [--] (a[-]b)).
  apply inv_resp_ap_zero.
  apply minus_ap_zero; auto.
 Qed.
-(** end hide *)
+(* end hide *)
 
 Lemma Taylor_lemma : forall n Hf Hf', {c : IR | I c |
  forall Hc, AbsIR (Taylor_rem n Hf[-]deriv_Sn' n Hf' c Hc[*] (b[-]a)) [<=] e}.

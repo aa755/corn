@@ -33,7 +33,7 @@
  * with this work; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *)
-(** begin hide *)
+(* begin hide *)
 (* file        : least_upper_bound_principle.v                     *)
 (* version     : 1.50 -	03/05/2001                                 *)
 (* version     : 1.00 - 27/02/2001                                 *)
@@ -1280,4 +1280,4 @@ Qed.
 End upper_bound_sequence.
 
 End LUBP.
-(** end hide *)
+(* end hide *)

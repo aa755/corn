@@ -35,9 +35,9 @@ Definition ball_ex (X: MetricSpace) (e: QposInf): X -> X -> Prop :=
   | Qpos2QposInf e' => ball e'
   | QposInfinity => fun a b => True
  end.
-(** begin hide *)
+(* begin hide *)
 Implicit Arguments ball_ex [X].
-(** end hide *)
+(* end hide *)
 Lemma ball_ex_weak_le : forall (X:MetricSpace) (e d:QposInf) (a b:X), QposInf_le e d ->  ball_ex e a b -> ball_ex d a b.
 Proof.
  intros X e d a b Hed Hab.
@@ -192,13 +192,13 @@ Qed.
 
 End UniformlyContinuousFunction.
 
-(** begin hide *)
+(* begin hide *)
 Implicit Arguments is_UniformlyContinuousFunction [X Y].
 
 (*
 Add Setoid UniformlyContinuousFunction ucEq uc_setoid as uc_Setoid.
 *)
-(** end hide *)
+(* end hide *)
 
 Definition UniformlyContinuousSpace (X Y:MetricSpace) : MetricSpace :=
 Build_MetricSpace (@ucBall_wd X Y) (@uc_is_MetricSpace X Y).
@@ -206,7 +206,7 @@ Build_MetricSpace (@ucBall_wd X Y) (@uc_is_MetricSpace X Y).
 Notation "x --> y" := (UniformlyContinuousSpace x y) (at level 55, right associativity) : uc_scope.
 
 Open Local Scope uc_scope.
-(** begin hide *)
+(* begin hide *)
 Add Parametric Morphism (X Y:MetricSpace) f : (@ucFun X Y f) with signature (@st_eq X) ==> (@st_eq Y) as uc_wd.
 Proof.
  intros x0 x1 Hx.
@@ -235,7 +235,7 @@ Proof.
  rewrite -> Hxy.
  reflexivity.
 Qed.
-(** end hide *)
+(* end hide *)
 (**
 *** The category of metric spaces.
 Metric spaces with uniformly continuous functions form a category.
@@ -268,7 +268,7 @@ Qed.
 Definition uc_compose (X Y Z:MetricSpace) (g: Y --> Z) (f:X --> Y) : X --> Z :=
 Build_UniformlyContinuousFunction (uc_compose_prf g f).
 
-(** begin hide *)
+(* begin hide *)
 Add Parametric Morphism X Y Z : (@uc_compose X Y Z) with signature (@st_eq _) ==> (@st_eq _) ==> (@st_eq _) as uc_compose_wd.
 Proof.
  intros x1 x2 Hx y1 y2 Hy.
@@ -279,7 +279,7 @@ Proof.
  rewrite -> (Hy x).
  reflexivity.
 Qed.
-(** end hide *)
+(* end hide *)
 
 Notation "f ∘ g" := (uc_compose f g) (at level 40, left associativity) : uc_scope.
 

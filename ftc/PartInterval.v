@@ -61,9 +61,9 @@ that [I [=] [a,b]] is included in the domain of [F].
 Variable F : PartIR.
 Variables a b : IR.
 Hypothesis Hab : a [<=] b.
-(** begin hide *)
+(* begin hide *)
 Let I := compact a b Hab.
-(** end hide *)
+(* end hide *)
 
 Hypothesis Hf : included I (Dom F).
 
@@ -95,9 +95,9 @@ domain [[a,b]] and build the corresponding partial function.
 
 Variables a b : IR.
 Hypothesis Hab : a [<=] b.
-(** begin hide *)
+(* begin hide *)
 Let I := compact a b Hab.
-(** end hide *)
+(* end hide *)
 
 Variable f : CSetoid_fun (subset I) IR.
 
@@ -150,9 +150,9 @@ type [I->IR] equal respectively to [F] and [G] in [I].
 Variables F G : PartIR.
 Variables a b c : IR.
 Hypothesis Hab : a [<=] b.
-(** begin hide *)
+(* begin hide *)
 Let I := compact a b Hab.
-(** end hide *)
+(* end hide *)
 
 Variables f g : CSetoid_fun (subset (compact a b Hab)) IR.
 

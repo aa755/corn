@@ -99,7 +99,7 @@ Implicit Arguments lipschitz_c [A B].
 
 Section Lemmas.
 
-(** begin hide *)
+(* begin hide *)
 Lemma nexp_power : forall p : nat, nexp IR p Two[=]nring (power p 2).
 Proof.
  simple induction p.
@@ -113,7 +113,7 @@ Proof.
  exact H.
 
 Qed.
-(** end hide *)
+(* end hide *)
 
 Lemma continuous_imp_continuous' :
  forall (A B : CPsMetricSpace) (f : CSetoid_fun A B),

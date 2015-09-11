@@ -309,10 +309,10 @@ respectively by [a] and by [fun n => (a (S n))].
 Variable x0 : IR.
 Variable a : nat -> IR.
 
-(** begin hide *)
+(* begin hide *)
 Let F := FPowerSeries' x0 a.
 Let G := FPowerSeries' x0 (fun n => a (S n)).
-(** end hide *)
+(* end hide *)
 
 (* begin show *)
 Variable J : interval.

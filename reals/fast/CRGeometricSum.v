@@ -66,9 +66,9 @@ match ((err_bound s) ?= err) with
 |_ => true
 end.
 
-(** begin hide *)
+(* begin hide *)
 Coercion Local Is_true : bool >-> Sortclass.
-(** end hide *)
+(* end hide *)
 
 Lemma err_prop_prop : forall e s, err_prop e s <-> err_bound s <= e.
 Proof.

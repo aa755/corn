@@ -66,9 +66,9 @@ convergence is simply the convergence of the sequence of partial sums.
 
 Variables a b : IR.
 Hypothesis Hab : a [<=] b.
-(** begin hide *)
+(* begin hide *)
 Let I := Compact Hab.
-(** end hide *)
+(* end hide *)
 
 Variable f : nat -> PartIR.
 
@@ -114,10 +114,10 @@ the corresponding series.
 Hypothesis H : fun_series_convergent.
 (* end show *)
 
-(** begin hide *)
+(* begin hide *)
 Let contf := ProjT1 H.
 Let incf (n : nat) := contin_imp_inc _ _ _ _ (contf n).
-(** end hide *)
+(* end hide *)
 
 Lemma Fun_Series_Sum_strext : forall x y Hx Hy,
  series_sum _ (fun_series_conv_imp_conv H x Hx (fun n => incf n x Hx)) [#]
@@ -168,9 +168,9 @@ All of these are analogous to the properties for series of real numbers, so we w
 
 Variables a b : IR.
 Hypothesis Hab : a [<=] b.
-(** begin hide *)
+(* begin hide *)
 Let I := Compact Hab.
-(** end hide *)
+(* end hide *)
 
 Lemma fun_seq_part_sum_n : forall f (H' : forall n, Continuous_I Hab (f n)) m n,
  0 < n -> m <= n -> Feq I (fun_seq_part_sum f n{-}fun_seq_part_sum f m) (FSum m (pred n) f).
@@ -443,9 +443,9 @@ Section More_Operations.
 
 Variables a b : IR.
 Hypothesis Hab : a [<=] b.
-(** begin hide *)
+(* begin hide *)
 Let I := Compact Hab.
-(** end hide *)
+(* end hide *)
 
 Variable f : nat -> PartIR.
 Hypothesis convF : fun_series_convergent _ _ Hab f.
@@ -569,9 +569,9 @@ Most of the convergence criteria for series of real numbers carry over to series
 
 Variables a b : IR.
 Hypothesis Hab : a [<=] b.
-(** begin hide *)
+(* begin hide *)
 Let I := Compact Hab.
-(** end hide *)
+(* end hide *)
 
 Variable f : nat -> PartIR.
 Hypothesis contF : forall n : nat, Continuous_I Hab (f n).

@@ -59,10 +59,10 @@ We first define what we mean by the derivative of order [n] of a function.
 Variables a b : IR.
 Hypothesis Hab' : a[<]b.
 
-(** begin hide *)
+(* begin hide *)
 Let Hab := less_leEq _ _ _ Hab'.
 Let I := Compact Hab.
-(** end hide *)
+(* end hide *)
 
 Fixpoint Derivative_I_n (n : nat) (F Fn : PartIR) {struct n} : CProp :=
   match n with
@@ -100,10 +100,10 @@ These are the expected extensionality and uniqueness results.
 Variables a b : IR.
 Hypothesis Hab' : a[<]b.
 
-(** begin hide *)
+(* begin hide *)
 Let Hab := less_leEq _ _ _ Hab'.
 Let I := Compact Hab.
-(** end hide *)
+(* end hide *)
 
 Lemma Diffble_I_n_wd : forall n F G,
  Feq I F G -> Diffble_I_n Hab' n F -> Diffble_I_n Hab' n G.
@@ -186,10 +186,10 @@ definition of [Diffble_I_n].
 Variables a b : IR.
 Hypothesis Hab' : a[<]b.
 
-(** begin hide *)
+(* begin hide *)
 Let Hab := less_leEq _ _ _ Hab'.
 Let I := Compact Hab.
-(** end hide *)
+(* end hide *)
 
 (**
 We begin by showing that having a higher order derivative implies being differentiable.
@@ -459,10 +459,10 @@ Section More_Results.
 Variables a b : IR.
 Hypothesis Hab' : a[<]b.
 
-(** begin hide *)
+(* begin hide *)
 Let Hab := less_leEq _ _ _ Hab'.
 Let I := Compact Hab.
-(** end hide *)
+(* end hide *)
 
 (**
 ** The Nth Derivative

@@ -221,17 +221,17 @@ negated quantity.  This way all lemmas about addition automatically
 apply to subtraction.
 *)
 Notation "x - y" := (x + (- y))%CR : CR_scope.
-(** begin hide *)
+(* begin hide *)
 Add Morphism CRopp with signature (@st_eq _) ==> (@st_eq _) as CRopp_wd.
 Proof.
  apply uc_wd.
 Qed.
-(** end hide *)
+(* end hide *)
 (**
 ** Inequality
 First a predicate for nonnegative numbers is defined. *)
 Definition CRnonNeg (x:CR) := forall e:Qpos, (-e) <= (approximate x e).
-(** begin hide *)
+(* begin hide *)
 Add Morphism CRnonNeg with signature (@st_eq _) ==> iff as CRnonNeg_wd.
 Proof.
  assert (forall x1 x2 : RegularFunction Q_as_MetricSpace,
@@ -272,10 +272,10 @@ Proof.
  symmetry.
  assumption.
 Qed.
-(** end hide *)
+(* end hide *)
 (** And similarly for nonpositive. *)
 Definition CRnonPos (x:CR) := forall e:Qpos, (approximate x e) <= e.
-(** begin hide *)
+(* begin hide *)
 Add Morphism CRnonPos with signature (@st_eq _) ==> iff as CRnonPos_wd.
 Proof.
  assert (forall x1 x2 : RegularFunction Q_as_MetricSpace,
@@ -316,12 +316,12 @@ Proof.
  symmetry.
  assumption.
 Qed.
-(** end hide *)
+(* end hide *)
 (** Inequality is defined in terms of nonnegativity. *)
 Instance CRle: Le CR := λ x y, (CRnonNeg (y - x))%CR.
 Infix "<=" := CRle : CR_scope.
 
-(** begin hide *)
+(* begin hide *)
 Add Morphism CRle with signature (@st_eq _) ==> (@st_eq _) ==> iff as CRle_wd.
 Proof.
  intros x1 x2 Hx y1 y2 Hy.
@@ -334,7 +334,7 @@ Proof.
  apply CRopp_wd.
  assumption.
 Qed.
-(** end hide *)
+(* end hide *)
 (** Basic properties of inequality *)
 Lemma CRle_refl : forall x, (x <= x)%CR.
 Proof.

@@ -51,9 +51,9 @@ Section NthCoeff_def.
 
 Variable R : CRing.
 
-(** begin hide *)
+(* begin hide *)
 Notation RX := (cpoly_cring R).
-(** end hide *)
+(* end hide *)
 
 (**
 The [n]-th coefficient of a polynomial. The default value is
@@ -193,9 +193,9 @@ Section NthCoeff_props.
 
 Variable R : CRing.
 
-(** begin hide *)
+(* begin hide *)
 Notation RX := (cpoly_cring R).
-(** end hide *)
+(* end hide *)
 
 Lemma nth_coeff_zero : forall n, nth_coeff n ([0]:RX) [=] [0].
 Proof.

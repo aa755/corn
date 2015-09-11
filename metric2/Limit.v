@@ -94,9 +94,9 @@ Fixpoint LazyExists_inc `{P : Stream A → Prop}
 *)
 
 Section TakeUntil.
-(** begin hide *)
+(* begin hide *)
 Coercion Local Is_true : bool >-> Sortclass.
-(** end hide *)
+(* end hide *)
 (** takeUntil creates a list of of elements upto a the point where the predicate
 P is satisfied.  For efficency reasons it doesn't actually build a list, but
 takes continuations for cons and nil instead.  To build an actual list pass in
@@ -402,7 +402,7 @@ Proof.
 Defined.
 
 End Limit.
-(** begin hide *)
+(* begin hide *)
 Implicit Arguments NearBy [X].
 Implicit Arguments Limit [X].
-(** end hide *)
+(* end hide *)

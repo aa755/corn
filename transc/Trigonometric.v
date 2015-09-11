@@ -280,7 +280,7 @@ situations).
 %\end{convention}%
 *)
 
-(** begin hide *)
+(* begin hide *)
 Let F (y : IR) := Sine[o]FId{+} [-C-]y.
 Let G (y : IR) := Sine{*} [-C-] (Cos y) {+}Cosine{*} [-C-] (Sin y).
 Let F' (y : IR) :=
@@ -301,7 +301,7 @@ Let G' (y : IR) :=
      | S (S (S O)) => Sine{*} [-C-] (Sin y) {-}Cosine{*} [-C-] (Cos y)
      | S (S (S (S p))) => funct p
      end).
-(** end hide *)
+(* end hide *)
 Opaque Sine Cosine.
 
 Lemma Sin_plus_Taylor_bnd_lft : forall y : IR, Taylor_bnd (F' y).

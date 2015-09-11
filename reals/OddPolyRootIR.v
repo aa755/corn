@@ -49,9 +49,9 @@ Section CPoly_Big.
 
 Variable R : COrdField.
 
-(** begin hide *)
+(* begin hide *)
 Let RX := (cpoly R).
-(** end hide *)
+(* end hide *)
 
 Lemma Cbigger : forall x y : R, {z : R | x [<=] z | y [<=] z}.
 Proof.
@@ -134,9 +134,9 @@ Variable R : CRing.
 
 Add Ring R: (CRing_Ring R).
 
-(** begin hide *)
+(* begin hide *)
 Let RX := (cpoly R).
-(** end hide *)
+(* end hide *)
 
 Fixpoint flip (p : RX) : RX :=
   match p with
@@ -201,9 +201,9 @@ Section OddPoly_Signs.
 
 Variable R : COrdField.
 
-(** begin hide *)
+(* begin hide *)
 Let RX := (cpoly R).
-(** end hide *)
+(* end hide *)
 
 Lemma oddpoly_pos : forall (p : RX) n, odd n -> monic n p -> {x : R | [0] [<=] p ! x}.
 Proof.
@@ -245,9 +245,9 @@ this field.
 *)
 
 Variable R : CField.
-(** begin hide *)
+(* begin hide *)
 Let RX := cpoly_cring R.
-(** end hide *)
+(* end hide *)
 
 Lemma poly_norm_aux : forall (p : RX) n, degree n p -> nth_coeff n p [#] [0].
 Proof.

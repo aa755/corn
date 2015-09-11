@@ -877,7 +877,7 @@ Section ArcTan_Range.
 
 Variable x : IR.
 
-(** begin hide *)
+(* begin hide *)
 Let min := proj1_sig2T _ _ _ (Tan_ilim x).
 Let max := proj1_sig2T _ _ _ (Tan_ilim [--]x).
 
@@ -1176,7 +1176,7 @@ Proof.
   apply b1.
  apply b2.
 Qed.
-(** end hide *)
+(* end hide *)
 
 Lemma ArcTan_range : [--] (Pi [/]TwoNZ) [<] ArcTan x and ArcTan x [<] Pi [/]TwoNZ.
 Proof.

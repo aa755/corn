@@ -56,9 +56,9 @@ Hypothesis n_pos : 0 < n.
 Variable c : IR.
 Hypothesis c_nonneg : [0] [<=] c.
 
-(** begin hide *)
+(* begin hide *)
 Let p := _X_[^]n[-]_C_ c.
-(** end hide *)
+(* end hide *)
 
 Lemma CnrootIR : {x : IR | [0] [<=] x | x[^]n [=] c}.
 Proof.

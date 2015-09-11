@@ -93,9 +93,9 @@ Proof AbsSmall_wdl.
 Declare Left Step AbsSmall_wdl_unfolded.
 Declare Right Step AbsSmall_wdr_unfolded.
 
-(** begin hide *)
+(* begin hide *)
 Notation ZeroR := ([0]:R).
-(** end hide *)
+(* end hide *)
 
 Lemma AbsSmall_leEq_trans : forall e1 e2 d : R,
  e1 [<=] e2 -> AbsSmall e1 d -> AbsSmall e2 d.

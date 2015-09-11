@@ -924,7 +924,7 @@ Proof.
 Defined.
 
 Lemma N_Deriv_char
- (** begin hide *)
+ (* begin hide *)
  :
  forall x Hx H,
  N_Deriv_fun x Hx [=]
@@ -965,7 +965,7 @@ Proof.
  apply leEq_imp_Max_is_rht; apply eq_imp_leEq.
  apply compact_in_interval_wd2; algebra.
 Qed.
-(** end hide *)
+(* end hide *)
 
 Lemma N_Deriv_strext : forall x y Hx Hy, N_Deriv_fun x Hx [#] N_Deriv_fun y Hy -> x [#] y.
 Proof.

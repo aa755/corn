@@ -62,10 +62,10 @@ Notation ProjIR2 := (prj2 IR _ _ _).
 
 Load "Transparent_algebra".
 
-(** begin hide *)
+(* begin hide *)
 Notation ZeroR := ([0]:IR).
 Notation OneR := ([1]:IR).
-(** end hide *)
+(* end hide *)
 
 Section CReals_axioms.
 (**

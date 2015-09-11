@@ -196,7 +196,7 @@ Proof.
  auto.
 Qed.
 
-(** begin hide *)
+(* begin hide *)
 Lemma Cos_resp_less_aux :
   forall x y : IR, [0] [<] x -> x [<] y -> y [<=] Pi [/]TwoNZ -> Cos y [<] Cos x.
 Proof.
@@ -261,7 +261,7 @@ Proof.
  apply shift_leEq_div; [ apply pos_two | apply shift_leEq_plus' ].
  rstepl x; apply less_leEq; auto.
 Qed.
-(** end hide *)
+(* end hide *)
 
 Lemma Cos_resp_less : forall x y, [0] [<=] x -> x [<] y -> y [<=] Pi -> Cos y [<] Cos x.
 Proof.

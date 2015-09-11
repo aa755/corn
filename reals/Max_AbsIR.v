@@ -1327,10 +1327,10 @@ Let [F,G:PartIR] and denote by [P] and [Q] their respective domains.
 
 Variables F G : PartIR.
 
-(** begin hide *)
+(* begin hide *)
 Let P := Dom F.
 Let Q := Dom G.
-(** end hide *)
+(* end hide *)
 
 Lemma part_function_Max_strext : forall x y (Hx : Conj P Q x) (Hy : Conj P Q y),
  Max (F x (Prj1 Hx)) (G x (Prj2 Hx)) [#] Max (F y (Prj1 Hy)) (G y (Prj2 Hy)) ->
@@ -1351,10 +1351,10 @@ Section Part_Function_Abs.
 
 Variables F G : PartIR.
 
-(** begin hide *)
+(* begin hide *)
 Let P := Dom F.
 Let Q := Dom G.
-(** end hide *)
+(* end hide *)
 
 Definition FMin := {--} (FMax {--}F {--}G).
 Definition FAbs := FMax F {--}F.
@@ -1403,10 +1403,10 @@ Section Inclusion.
 
 Variables F G : PartIR.
 
-(** begin hide *)
+(* begin hide *)
 Let P := Dom F.
 Let Q := Dom G.
-(** end hide *)
+(* end hide *)
 
 (**
 %\begin{convention}% Let [R:IR->CProp].

@@ -40,7 +40,7 @@ Section Sum_and_so_on.
 
 Opaque Sine Cosine.
 
-(** begin hide *)
+(* begin hide *)
 Let F (y : IR) := Sine[o]FId{+} [-C-]y.
 Let G (y : IR) := Sine{*}[-C-] (Cos y) {+}Cosine{*}[-C-] (Sin y).
 Let F' (y : IR) :=
@@ -61,7 +61,7 @@ Let G' (y : IR) :=
      | S (S (S O)) => Sine{*}[-C-] (Sin y) {-}Cosine{*}[-C-] (Cos y)
      | S (S (S (S p))) => funct p
      end).
-(** end hide *)
+(* end hide *)
 
 Lemma Sin_plus : forall x y : IR, Sin (x[+]y) [=] Sin x[*]Cos y[+]Cos x[*]Sin y.
 Proof.

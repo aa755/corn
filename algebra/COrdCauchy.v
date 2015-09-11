@@ -47,18 +47,18 @@ Section OrdField_Cauchy.
 *)
 Variable R : COrdField.
 
-(** begin hide *)
+(* begin hide *)
 Set Implicit Arguments.
 Unset Strict Implicit.
-(** end hide *)
+(* end hide *)
 
 Definition Cauchy_prop (g : nat -> R) : CProp := forall e : R,
  [0] [<] e -> {N : nat | forall m, N <= m -> AbsSmall e (g m[-]g N)}.
 
-(** begin hide *)
+(* begin hide *)
 Set Strict Implicit.
 Unset Implicit Arguments.
-(** end hide *)
+(* end hide *)
 
 (* Def. CauchyP, Build_CauchyP *)
 (* Should be defined in terms of CauchyP *)

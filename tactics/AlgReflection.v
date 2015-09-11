@@ -34,7 +34,7 @@
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *)
 
-(** begin hide *)
+(* begin hide *)
 Require Export CLogic.
 Require Export Bool.
 
@@ -521,4 +521,4 @@ Inductive quadruple : Type :=
 End Quadruple.
 Implicit Arguments Quad [A B C D].
 
-(** end hide *)
+(* end hide *)

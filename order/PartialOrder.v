@@ -68,7 +68,7 @@ Proof with trivial.
  firstorder.
 Qed.
 
-(** begin hide *)
+(* begin hide *)
 Add Parametric Morphism (p:PartialOrder) : (le p) with signature (@st_eq p) ==> (@st_eq p) ==> iff as le_compat.
 Proof.
  assert (forall x1 x2 : p, x1 == x2 -> forall x3 x4 : p, x3 == x4 -> (x1 <= x3 -> x2 <= x4)).
@@ -84,7 +84,7 @@ Proof.
   symmetry; assumption.
  firstorder.
 Qed.
-(** end hide *)
+(* end hide *)
 Section PartialOrder.
 
 Variable X : PartialOrder.

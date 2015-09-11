@@ -43,7 +43,7 @@ Record SemiLattice : Type :=
 ; sl_proof : is_SemiLattice po meet
 }.
 
-(** begin hide *)
+(* begin hide *)
 Implicit Arguments meet [s].
 
 Add Parametric Morphism (X:SemiLattice) : (@meet X) with signature (@st_eq X) ==> (@st_eq X) ==> (@st_eq X)  as meet_compat.
@@ -58,7 +58,7 @@ Proof.
  pose (Seq_sym X _ (po_st (po_proof X))).
  apply le_antisym; firstorder.
 Qed.
-(** end hide *)
+(* end hide *)
 
 Section Meet.
 

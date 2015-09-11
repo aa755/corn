@@ -106,10 +106,10 @@ A function differentiable in an interval is everywhere defined in that interval.
 Variables a b : IR.
 Hypothesis Hab' : a [<] b.
 
-(** begin hide *)
+(* begin hide *)
 Let Hab := less_leEq _ _ _ Hab'.
 Let I := Compact Hab.
-(** end hide *)
+(* end hide *)
 
 Lemma diffble_imp_inc : forall F, Diffble_I Hab' F -> included I (Dom F).
 Proof.
@@ -144,10 +144,10 @@ All the algebraic results carry on.
 Variables a b : IR.
 Hypothesis Hab' : a [<] b.
 
-(** begin hide *)
+(* begin hide *)
 Let Hab := less_leEq _ _ _ Hab'.
 Let I := Compact Hab.
-(** end hide *)
+(* end hide *)
 
 Section Constants.
 
@@ -297,10 +297,10 @@ Section Corollaries.
 Variables a b : IR.
 Hypothesis Hab' : a [<] b.
 
-(** begin hide *)
+(* begin hide *)
 Let Hab := less_leEq _ _ _ Hab'.
 Let I := Compact Hab.
-(** end hide *)
+(* end hide *)
 
 Variables F G : PartIR.
 

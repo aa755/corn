@@ -71,9 +71,9 @@ Hypothesis Hab : a [<=] b.
 
 Variables c d : IR.
 Hypothesis Hcd : c [<=] d.
-(** begin hide *)
+(* begin hide *)
 Let I := Compact Hab.
-(** end hide *)
+(* end hide *)
 
 (* begin show *)
 Hypothesis Hf : included (Compact Hab) (Dom F).
@@ -151,9 +151,9 @@ We now prove that the composition of two continuous partial functions is continu
 
 Variables a b : IR.
 Hypothesis Hab : a [<=] b.
-(** begin hide *)
+(* begin hide *)
 Let I := Compact Hab.
-(** end hide *)
+(* end hide *)
 
 Variables c d : IR.
 Hypothesis Hcd : c [<=] d.
@@ -211,11 +211,11 @@ Hypothesis Hab' : a [<] b.
 Variables c d : IR.
 Hypothesis Hcd' : c [<] d.
 
-(** begin hide *)
+(* begin hide *)
 Let Hab := less_leEq _ _ _ Hab'.
 Let Hcd := less_leEq _ _ _ Hcd'.
 Let I := Compact Hab.
-(** end hide *)
+(* end hide *)
 
 (* begin show *)
 Hypothesis derF : Derivative_I Hab' F F'.
@@ -401,11 +401,11 @@ Hypothesis Hab' : a [<] b.
 Variables c d : IR.
 Hypothesis Hcd' : c [<] d.
 
-(** begin hide *)
+(* begin hide *)
 Let Hab := less_leEq _ _ _ Hab'.
 Let Hcd := less_leEq _ _ _ Hcd'.
 Let I := Compact Hab.
-(** end hide *)
+(* end hide *)
 
 (* begin show *)
 Hypothesis diffF : Diffble_I Hab' F.
@@ -431,9 +431,9 @@ Here we show that the limit of sequences of compositions is the composition of t
 
 Variables a b : IR.
 Hypothesis Hab : a [<=] b.
-(** begin hide *)
+(* begin hide *)
 Let I := Compact Hab.
-(** end hide *)
+(* end hide *)
 
 Variables c d : IR.
 Hypothesis Hcd : c [<=] d.
@@ -444,10 +444,10 @@ Hypothesis contf : forall n, Continuous_I Hab (f n).
 Hypothesis contg : forall n, Continuous_I Hcd (g n).
 Hypothesis rangef : forall n, forall (x : IR) (Hx : Dom (f n) x), I x -> Compact Hcd (f n x Hx).
 
-(** begin hide *)
+(* begin hide *)
 Let incf (n : nat) := contin_imp_inc _ _ _ _ (contf n).
 Let incg (n : nat) := contin_imp_inc _ _ _ _ (contg n).
-(** end hide *)
+(* end hide *)
 
 Section ExplicitLimit.
 
@@ -459,10 +459,10 @@ Hypothesis contG : Continuous_I Hcd G.
 Hypothesis convF : conv_fun_seq' _ _ Hab f F contf contF.
 Hypothesis convG : conv_fun_seq' _ _ Hcd g G contg contG.
 
-(** end hide *)
+(* end hide *)
 Let incF := contin_imp_inc _ _ _ _ contF.
 Let incG := contin_imp_inc _ _ _ _ contG.
-(** end hide *)
+(* end hide *)
 
 (* begin show *)
 Hypothesis rangeF : forall (x : IR) (Hx : Dom F x), I x -> Compact Hcd (F x Hx).
@@ -531,10 +531,10 @@ End ExplicitLimit.
 The same is true if we don't make the limits explicit.
 *)
 
-(** begin hide *)
+(* begin hide *)
 Hypothesis Hf : Cauchy_fun_seq _ _ _ _ contf.
 Hypothesis Hg : Cauchy_fun_seq _ _ _ _ contg.
-(** end hide *)
+(* end hide *)
 
 Lemma fun_Lim_seq_comp : forall H H', conv_fun_seq' a b Hab (fun n => g n[o]f n)
  (Cauchy_fun_seq_Lim _ _ _ _ _ Hg[o]Cauchy_fun_seq_Lim _ _ _ _ _ Hf) H H'.
@@ -576,9 +576,9 @@ Here we show that the limit of series of composition by a constant function (on 
 
 Variables a b : IR.
 Hypothesis Hab : a [<=] b.
-(** begin hide *)
+(* begin hide *)
 Let I := Compact Hab.
-(** end hide *)
+(* end hide *)
 
 Variables c d : IR.
 Hypothesis Hcd : c [<=] d.
@@ -586,9 +586,9 @@ Hypothesis Hcd : c [<=] d.
 Variable g : nat -> PartIR.
 Variable F : PartIR.
 Hypothesis contF : Continuous_I Hab F.
-(** begin hide *)
+(* begin hide *)
 Let incF := contin_imp_inc _ _ _ _ contF.
-(** end hide *)
+(* end hide *)
 
 Hypothesis convG : fun_series_convergent _ _ Hcd g.
 Hypothesis rangeF : forall (x : IR) (Hx : Dom F x), Compact Hab x -> (Compact Hcd) (F x Hx).

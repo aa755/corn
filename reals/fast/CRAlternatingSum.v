@@ -47,9 +47,9 @@ a bound on the error of the partial sum.
 *)
 
 Section InfiniteAlternatingSum.
-(** begin hide *)
+(* begin hide *)
 Coercion Local Is_true : bool >-> Sortclass.
-(** end hide *)
+(* end hide *)
 (** Given a stream, we can compute its alternating partial sum up to
 an point satifying a predicate, so long as that predicate eventually
 exists. *)

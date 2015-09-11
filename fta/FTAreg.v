@@ -231,9 +231,9 @@ Hypothesis zleq : [0] [<=] q.
 Hypothesis qlt1 : q [<] [1].
 Variable c : IR.
 Hypothesis zltc : [0] [<] c.
-(** begin hide *)
+(* begin hide *)
 Let q_ : q[-][1] [#] [0] := qltone IR q qlt1.
-(** end hide *)
+(* end hide *)
 Variable e : IR.
 Variable zlte : [0] [<] e.
 
@@ -303,13 +303,13 @@ Hypothesis zltc : [0] [<] c.
 
 %\end{convention}% *)
 
-(** begin hide *)
+(* begin hide *)
 Let q_ : q[-][1] [#] [0] := qltone IR q qlt1.
 Let nrtq : IR := NRoot zleq lt0n.
 Let nrtc : IR := NRoot (less_leEq _ _ _ zltc) lt0n.
 Let nrtqlt1 : nrtq [<] [1] := NRoot_less_one q zleq n lt0n qlt1.
 Let nrtq_ : nrtq[-][1] [#] [0] := qltone IR nrtq nrtqlt1.
-(** end hide *)
+(* end hide *)
 
 Lemma zlt_nrtq : [0] [<=] nrtq.
 Proof.

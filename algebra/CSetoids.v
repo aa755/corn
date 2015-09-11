@@ -68,10 +68,10 @@ Implicit Arguments Csymmetric [A].
 Implicit Arguments Ttransitive [A].
 Implicit Arguments Ctransitive [A].
 
-(** begin hide *)
+(* begin hide *)
 Set Implicit Arguments.
 Unset Strict Implicit.
-(** end hide *)
+(* end hide *)
 
 (**
 ** Relations necessary for Setoids
@@ -96,10 +96,10 @@ Definition antisymmetric (R : Crelation A) : Prop := forall x y : A,
  R x y -> Not (R y x).
 
 End Properties_of_relations.
-(** begin hide *)
+(* begin hide *)
 Set Strict Implicit.
 Unset Implicit Arguments.
-(** end hide *)
+(* end hide *)
 
 (**
 ** Definition of Setoid
@@ -855,9 +855,9 @@ Proof. now repeat intro. Qed.
 
 Definition id_un_op := Build_CSetoid_un_op (fun x : S => x) id_strext.
 
-(** begin hide *)
+(* begin hide *)
 Identity Coercion un_op_fun : CSetoid_un_op >-> CSetoid_fun.
-(** end hide *)
+(* end hide *)
 
 Definition cs_un_op_strext := csf_strext S S.
 
@@ -872,9 +872,9 @@ Definition Build_CSetoid_bin_op := Build_CSetoid_bin_fun S S S.
 Definition cs_bin_op_wd := csbf_wd S S S.
 Definition cs_bin_op_strext := csbf_strext S S S.
 
-(** begin hide *)
+(* begin hide *)
 Identity Coercion bin_op_bin_fun : CSetoid_bin_op >-> CSetoid_bin_fun.
-(** end hide *)
+(* end hide *)
 
 Lemma bin_op_is_wd_un_op_lft : forall (op : CSetoid_bin_op) (c : S),
  un_op_wd (fun x : S => op x c).
@@ -950,9 +950,9 @@ Lemma csoo_wd_unfolded : forall (op : CSetoid_outer_op) x1 x2 y1 y2,
  x1 [=] x2 -> y1 [=] y2 -> op x1 y1 [=] op x2 y2.
 Proof csoo_wd.
 
-(** begin hide *)
+(* begin hide *)
 Identity Coercion outer_op_bin_fun : CSetoid_outer_op >-> CSetoid_bin_fun.
-(** end hide *)
+(* end hide *)
 
 End csetoid_outer_ops.
 Hint Resolve csoo_wd_unfolded: algebra_c.
@@ -1124,9 +1124,9 @@ End SubCSetoid_binary_operations.
 
 End SubCSetoids.
 
-(** begin hide *)
+(* begin hide *)
 Ltac Step_final x := apply eq_transitive with x; algebra.
-(** end hide *)
+(* end hide *)
 
 Tactic Notation "Step_final" constr(c) :=  Step_final c.
 

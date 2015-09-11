@@ -301,9 +301,9 @@ We now formalize some trivial and helpful constructions.
 
 Variables a b : IR.
 Hypothesis Hab : a [<=] b.
-(** begin hide *)
+(* begin hide *)
 Let I := compact a b Hab.
-(** end hide *)
+(* end hide *)
 
 Section Getting_Points.
 
@@ -470,9 +470,9 @@ with [n] points.
 *)
 
 Variables a b : IR.
-(** begin hide *)
+(* begin hide *)
 Let I := compact a b.
-(** end hide *)
+(* end hide *)
 Hypothesis Hab : a [<=] b.
 
 Variable n : nat.
@@ -668,9 +668,9 @@ Qed.
 *)
 
 Variables a b : IR.
-(** begin hide *)
+(* begin hide *)
 Let I := compact a b.
-(** end hide *)
+(* end hide *)
 Hypothesis Hab : a [<=] b.
 
 (**
@@ -743,10 +743,10 @@ Variables m n : nat.
 Hypothesis Hm : 0 <> m.
 Hypothesis Hn : 0 <> n.
 
-(** begin hide *)
+(* begin hide *)
 Let P := Even_Partition Hab m Hm.
 Let Q := Even_Partition Hab n Hn.
-(** end hide *)
+(* end hide *)
 
 Lemma even_partition_refinement : {N : nat | {HN : 0 <> N |
  Refinement P (Even_Partition Hab N HN) |
@@ -809,9 +809,9 @@ Implicit Arguments Separated [a b Hab n m].
 Section Sep_Partitions.
 
 Variables a b : IR.
-(** begin hide *)
+(* begin hide *)
 Let I := compact a b.
-(** end hide *)
+(* end hide *)
 Hypothesis Hab : a [<=] b.
 
 (**

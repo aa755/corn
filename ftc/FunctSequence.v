@@ -66,9 +66,9 @@ see Bishop 1967.
 
 Variables a b : IR.
 Hypothesis Hab : a [<=] b.
-(** begin hide *)
+(* begin hide *)
 Let I := Compact Hab.
-(** end hide *)
+(* end hide *)
 
 Variable f : nat -> PartIR.
 Variable F : PartIR.
@@ -76,10 +76,10 @@ Variable F : PartIR.
 Hypothesis contf : forall n : nat, Continuous_I Hab (f n).
 Hypothesis contF : Continuous_I Hab F.
 
-(** begin hide *)
+(* begin hide *)
 Let incf (n : nat) := contin_imp_inc _ _ _ _ (contf n).
 Let incF := contin_imp_inc _ _ _ _ contF.
-(** end hide *)
+(* end hide *)
 
 Definition Cauchy_fun_seq := forall e, [0] [<] e -> {N : nat | forall m n, N <= m -> N <= n ->
  forall x Hx, AbsIR (f m x (incf m x Hx) [-]f n x (incf n x Hx)) [<=] e}.
@@ -301,9 +301,9 @@ Section More_Definitions.
 
 Variables a b : IR.
 Hypothesis Hab : a [<=] b.
-(** begin hide *)
+(* begin hide *)
 Let I := Compact Hab.
-(** end hide *)
+(* end hide *)
 
 Variable f : nat -> PartIR.
 Hypothesis contf : forall n : nat, Continuous_I Hab (f n).
@@ -350,9 +350,9 @@ This section contains a number of technical results stating mainly that being a 
 
 Variables a b : IR.
 Hypothesis Hab : a [<=] b.
-(** begin hide *)
+(* begin hide *)
 Let I := Compact Hab.
-(** end hide *)
+(* end hide *)
 
 Variable f : nat -> PartIR.
 (* begin show *)
@@ -451,9 +451,9 @@ defined with respect to functional equality in the interval [[a,b]].
 
 Variables a b : IR.
 Hypothesis Hab : a [<=] b.
-(** begin hide *)
+(* begin hide *)
 Let I := Compact Hab.
-(** end hide *)
+(* end hide *)
 
 Variables f g : nat -> PartIR.
 (* begin show *)
@@ -718,9 +718,9 @@ We now study how convergence is affected by algebraic operations, and some algeb
 
 Variables a b : IR.
 Hypothesis Hab : a [<=] b.
-(** begin hide *)
+(* begin hide *)
 Let I := Compact Hab.
-(** end hide *)
+(* end hide *)
 
 Variables f g : nat -> PartIR.
 Hypothesis contf : forall n, Continuous_I Hab (f n).
@@ -789,12 +789,12 @@ Hypothesis convF : conv_fun_seq' a b Hab f F contf contF.
 Hypothesis convG : conv_fun_seq' a b Hab g G contg contG.
 (* end show *)
 
-(** begin hide *)
+(* begin hide *)
 Let incf (n : nat) := contin_imp_inc _ _ _ _ (contf n).
 Let incg (n : nat) := contin_imp_inc _ _ _ _ (contg n).
 Let incF := contin_imp_inc _ _ _ _ contF.
 Let incG := contin_imp_inc _ _ _ _ contG.
-(** end hide *)
+(* end hide *)
 
 Lemma fun_Lim_seq_plus' : forall H H',
  conv_fun_seq' a b Hab (fun n => f n{+}g n) (F{+}G) H H'.
@@ -951,9 +951,9 @@ Section More_Algebraic_Properties.
 
 Variables a b : IR.
 Hypothesis Hab : a [<=] b.
-(** begin hide *)
+(* begin hide *)
 Let I := Compact Hab.
-(** end hide *)
+(* end hide *)
 
 Variables f g : nat -> PartIR.
 Hypothesis contf : forall n : nat, Continuous_I Hab (f n).
@@ -963,10 +963,10 @@ Hypothesis contg : forall n : nat, Continuous_I Hab (g n).
 The same is true if we don't make the limits explicit.
 *)
 
-(** begin hide *)
+(* begin hide *)
 Hypothesis Hf : Cauchy_fun_seq _ _ _ _ contf.
 Hypothesis Hg : Cauchy_fun_seq _ _ _ _ contg.
-(** end hide *)
+(* end hide *)
 
 Lemma fun_Lim_seq_plus : forall H H', conv_fun_seq' a b Hab (fun n => f n{+}g n)
  (Cauchy_fun_seq_Lim _ _ _ _ _ Hf{+}Cauchy_fun_seq_Lim _ _ _ _ _ Hg) H H'.
@@ -1061,9 +1061,9 @@ Section Still_More_Algebraic_Properties.
 
 Variables a b : IR.
 Hypothesis Hab : a [<=] b.
-(** begin hide *)
+(* begin hide *)
 Let I := Compact Hab.
-(** end hide *)
+(* end hide *)
 
 Variable f : nat -> PartIR.
 Hypothesis contf : forall n, Continuous_I Hab (f n).

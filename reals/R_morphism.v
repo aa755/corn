@@ -33,7 +33,7 @@
  * with this work; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  *)
-(** begin hide *)
+(* begin hide *)
 (* In this file a notion of morphism between two arbitrary real number
    structures, is introduced together with te proofs that this notion of
    morphism preserves the basic algebraic structure. *)
@@ -670,4 +670,4 @@ End with_plus_less.
 
 End simplification.
 
-(** end hide *)
+(* end hide *)

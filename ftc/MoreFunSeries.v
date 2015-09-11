@@ -644,12 +644,12 @@ Qed.
 
 (** Assume [h(x)] is the pointwise series of [f(x)] *)
 
-(** begin hide *)
+(* begin hide *)
 Let h (x : IR) (Hx : J x) := series_sum _
     (fun_series_conv_imp_conv _ _ _ _
        (H _ _ (leEq_reflexive _ x) (compact_single_iprop J x Hx)) x
        (compact_single_prop x) (fun_series_inc_IR x Hx)).
-(** end hide *)
+(* end hide *)
 
 Lemma FSeries_Sum_strext_IR : forall x y Hx Hy, h x Hx [#] h y Hy -> x [#] y.
 Proof.

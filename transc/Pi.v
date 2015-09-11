@@ -56,7 +56,7 @@ Fixpoint pi_seq (n : nat) : IR :=
 
 Opaque Cosine.
 
-(** begin hide *)
+(* begin hide *)
 Lemma pi_seq_lemma : forall n, [0] [<=] pi_seq n
   and (forall t : IR, [0] [<=] t -> t [<=] pi_seq n -> [0] [<] Cos t).
 Proof.
@@ -134,7 +134,7 @@ Proof.
  apply shift_leEq_minus; apply less_leEq.
  astepl x; auto.
 Qed.
-(** end hide *)
+(* end hide *)
 
 (**
 This sequence is nonnegative and the cosine of any number between
@@ -240,7 +240,7 @@ Proof.
  algebra.
 Qed.
 
-(** begin hide *)
+(* begin hide *)
 Lemma pi_seq_gt_one : forall n : nat, [1] [<=] pi_seq (S n).
 Proof.
  intros.
@@ -332,7 +332,7 @@ Proof.
   apply pi_seq_bnd'.
  algebra.
 Qed.
-(** end hide *)
+(* end hide *)
 
 (** An auxiliary result. *)
 
@@ -699,9 +699,9 @@ Hint Resolve pos_Pi pos_HalfPi pos_QuarterPi QuarterPi_less_HalfPi
   invHalfPi_less_HalfPi invHalfPi_less_QuarterPi invQuarterPi_less_Pi
   invQuarterPi_less_HalfPi invQuarterPi_less_QuarterPi: piorder.
 
-(** begin hide *)
+(* begin hide *)
 Ltac PiSolve := try apply less_leEq; auto with piorder.
-(** end hide *)
+(* end hide *)
 
 Section Sin_And_Cos.
 
@@ -745,13 +745,13 @@ Proof.
   apply dom_wd with (Two[*]x); algebra.
 Qed.
 
-(** begin hide *)
+(* begin hide *)
 Lemma sqrt_lemma : forall Hpos H, [1] [/]TwoNZ [=] ([1][/] sqrt Two Hpos[//]H) [^]2.
 Proof.
  intros.
  Step_final ([1][^]2[/] _[//]nexp_resp_ap_zero 2 H).
 Qed.
-(** end hide *)
+(* end hide *)
 
 (** Value of trigonometric functions at [Pi[/]Four]. *)
 

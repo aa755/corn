@@ -74,18 +74,18 @@ Let funct_i n Hf i Hi :=
 
 Definition Taylor_Seq' n Hf := FSumx _ (funct_i n Hf).
 
-(** begin hide *)
+(* begin hide *)
 Lemma TaylorB : forall n Hf, Dom (Taylor_Seq' n Hf) b.
 Proof.
  repeat split.
  apply FSumx_pred'; repeat split.
 Qed.
-(** end hide *)
+(* end hide *)
 
 Definition Taylor_Rem n Hf := F b (Diffble_n_imp_inc _ _ _ _ Hf b Hb) [-]
  Taylor_Seq' n Hf b (TaylorB n Hf).
 
-(** begin hide *)
+(* begin hide *)
 Lemma Taylor_Sumx_lemma : forall n x z y y', (forall H, y 0 H [=] z) ->
   (forall i H H', y' i H' [=] y (S i) H) ->
   x[-]Sumx (G:=IR) (n:=S n) y [=] x[-]z[-]Sumx (G:=IR) (n:=n) y'.
@@ -196,7 +196,7 @@ Proof.
  apply ap_symmetric_unfolded; apply zero_minus_apart.
  eapply cring_mult_ap_zero_op; apply H.
 Qed.
-(** end hide *)
+(* end hide *)
 
 Theorem Taylor' : forall n Hf Hf' e, [0] [<] e -> {c : IR | Compact (Min_leEq_Max a b) c |
  forall Hc, AbsIR (Taylor_Rem n Hf'[-]deriv_Sn b n Hf c Hc[*] (b[-]a)) [<=] e}.

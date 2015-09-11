@@ -450,14 +450,14 @@ Proof.
  elim (HNx (K + Nx)); auto with arith.
 Qed.
 
-(** begin hide *)
+(* begin hide *)
 Let PT (x : R_COrdField') (M : nat) :=
   proj2_sigT nat
     (fun N : nat =>
      forall m : nat,
      N <= m -> AbsSmall (one_div_succ M) (CS_seq F x m[-]CS_seq F x N))
     (conv_modulus x M).
-(** end hide *)
+(* end hide *)
 
 Lemma modulus_property : forall x M m0 m1, T x M <= m0 -> T x M <= m1 ->
  AbsSmall (Two[*]one_div_succ M) (CS_seq F x m0[-]CS_seq F x m1).

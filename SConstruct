@@ -38,4 +38,6 @@ os.chmod('coqidescript', 0755)
 
 env.CoqDoc(env.Dir('coqdoc'), vs+mc_vs, COQDOCFLAGS='-utf8 --toc --no-lib-name --coqlib http://coq.inria.fr/library')
 
+#vsall=vs+mc_vs
 #env.Command('deps.dot', [], 'tools/DepsToDot.hs < deps > $TARGET')
+Return('vs mc_vos mc_globs')

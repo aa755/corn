@@ -60,7 +60,7 @@ Section Rational_sequence_prelogue.
 Variable R1 : CReals.
 
 (* We clone these proofs from CReals1.v just because there IR is an axiom *)
-(** begin hide *)
+(* begin hide *)
 Lemma CReals_is_CReals : is_CReals R1 (Lim (IR:=R1)).
 Proof.
  unfold Lim in |- *.
@@ -93,7 +93,7 @@ Qed.
 (*--------------------------------------*)
 
 Coercion Local nat_of_P : positive >-> nat.
-(** end hide *)
+(* end hide *)
 
 (**
 ** Injection from [Q] to an arbitrary real number structure

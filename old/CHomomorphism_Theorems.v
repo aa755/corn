@@ -132,7 +132,7 @@ We now define the functions of which we want to prove the existence.
 
 Definition tau (x:A) := (x:AdivCs).
 
-(** begin hide *)
+(* begin hide *)
 Lemma tau_strext : fun_strext tau.
 Proof.
  red in |-*; intros x y; unfold tau; simpl in |-*.
@@ -140,7 +140,7 @@ Proof.
  intro X; cut ((x[-]y)[#]Zero); algebra.
  apply (mh_apzero A B sigma (x[-]y)); assumption.
 Qed.
-(** end hide *)
+(* end hide *)
 
 Definition tau_is_fun := Build_CSetoid_fun A AdivCs tau tau_strext.
 
@@ -155,7 +155,7 @@ Qed.
 
 Definition sigst (x:AdivCs) := (sigma x).
 
-(** begin hide *)
+(* begin hide *)
 Lemma sigst_strext : fun_strext sigst.
 Proof.
  red in |-*; intros x y; unfold sigst; simpl in |-*.
@@ -167,7 +167,7 @@ Proof.
  astepl ((sigma x)[-](sigma y)).
  apply minus_ap_zero; assumption.
 Qed.
-(** end hide *)
+(* end hide *)
 
 Definition sigst_is_fun := Build_CSetoid_fun AdivCs B sigst sigst_strext.
 

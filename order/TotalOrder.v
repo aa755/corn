@@ -93,14 +93,14 @@ Section Antitone.
 Variable f : X -> X.
 Hypothesis Hf : antitone X f.
 
-(** begin hide *)
+(* begin hide *)
 Add Morphism f with signature (@st_eq X) ==> (@st_eq X) as antitone_compat.
 Proof.
  revert Hf; rewrite -> antitone_def; intros.
  rewrite -> equiv_le_def in *.
  firstorder.
 Qed.
-(** end hide *)
+(* end hide *)
 
 (* meet transforms into join for antitone functions *)
 Lemma antitone_meet_join_distr : forall x y : X, f (meet x y) == join (f x) (f y).
