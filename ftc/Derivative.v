@@ -294,11 +294,12 @@ Proof.
  inversion_clear H2; assumption.
 Qed.
 
+Variable Hab'' : a [<=] b.
+
 (**
-Any function that is or has a derivative is continuous.
+Any function that is a derivative is continuous.
 *)
 
-Variable Hab'' : a [<=] b.
 
 Lemma deriv_imp_contin'_I : Derivative_I Hab' F G -> Continuous_I Hab'' G.
 Proof.
@@ -309,43 +310,61 @@ Proof.
  split.
   Included.
  intros e He.
+ (** derivative is being instantiated with half the
+    value of epsilon for continuity *)
  elim (derivFG _ (pos_div_two _ _ He)); intros d posd Hde; clear derivFG.
+ (** same delta is used *)
  exists d. auto. intros x y H0 H1 Hx Hy H2.
   set (Hx' := incF _ H0) in *.
  set (Hy' := incF _ H1) in *.
- apply equal_less_leEq with (a := ZeroR) (b := AbsIR (y[-]x)); intros.
-   3: apply AbsIR_nonneg.
-  apply mult_cancel_leEq with (AbsIR (y[-]x)); auto.
-  rstepr (e [/]TwoNZ[*]AbsIR (y[-]x) [+]e [/]TwoNZ[*]AbsIR (y[-]x)).
-  eapply leEq_wdl.
-   2: apply AbsIR_resp_mult.
-  apply leEq_wdl with (AbsIR (F y Hy'[-]F x Hx'[-]G x Hx[*] (y[-]x) [+]
-    (F x Hx'[-]F y Hy'[-]G y Hy[*] (x[-]y)))).
-   2: eapply eq_transitive_unfolded.
-    2: apply AbsIR_inv.
-   2: apply AbsIR_wd; rational.
-  eapply leEq_transitive.
-   apply triangle_IR.
-  apply plus_resp_leEq_both.
-   auto.
-  apply leEq_wdr with (e [/]TwoNZ[*]AbsIR (x[-]y)).
-   apply Hde; auto.
-   eapply leEq_wdl.
-    apply H2.
-   apply AbsIR_minus.
-  apply mult_wdr; apply AbsIR_minus.
- apply leEq_wdl with ZeroR.
+
+ (** [le] is defined as not [lt]. hence this works *)
+ apply equal_less_leEq 
+   with (a := ZeroR) (b := AbsIR (y[-]x)); intros; 
+        [| | apply AbsIR_nonneg; fail].
+- (** multiply both sides by [AbsIR (y[-]x))] to make it match with [Hde] *)
+   apply mult_cancel_leEq with (AbsIR (y[-]x)); auto.
+   (** rewrite with orall a, a = a/2 +a/2 in rhs of concl*)
+   rstepr (e [/]TwoNZ[*]AbsIR (y[-]x) [+]e [/]TwoNZ[*]AbsIR (y[-]x)).
+   (** Abs commutes over mult *)
+   eapply leEq_wdl; [|apply AbsIR_resp_mult; fail].
+
+   (** The step below is the key part of the proof. 
+       It adds and subtracts [F y Hy'[-]F x Hx'] in LHS
+       in order to split into 2 parts, both of
+       which are amenable to [Hde]. Note that [x] and [y] are
+       quantified in [Hde]. *)
+   apply leEq_wdl with (AbsIR (F y Hy'[-]F x Hx'[-]G x Hx[*] (y[-]x) [+]
+         (F x Hx'[-]F y Hy'[-]G y Hy[*] (x[-]y))));
+    [ |eapply eq_transitive_unfolded;
+        [apply AbsIR_inv | apply AbsIR_wd; rational]];[].
+    eapply leEq_transitive;[apply triangle_IR; fail |].
+   apply plus_resp_leEq_both;[apply Hde; trivial; fail|].
+   apply leEq_wdr with (e [/]TwoNZ[*]AbsIR (x[-]y)).
+   + apply Hde; auto.
+     eapply leEq_wdl;[apply H2; fail|].
+     apply AbsIR_minus.
+   + apply mult_wdr; apply AbsIR_minus.
+
+- (* x[=]y so this step should be easy *)
+  apply leEq_wdl with ZeroR.
   apply less_leEq; auto.
- astepl (AbsIR [0]).
- apply AbsIR_wd.
- apply eq_symmetric_unfolded; apply x_minus_x.
- apply pfwdef.
- apply cg_inv_unique_2.
- apply AbsIR_eq_zero.
- apply eq_symmetric_unfolded; eapply eq_transitive_unfolded.
-  apply H3.
- apply AbsIR_minus.
+  astepl (AbsIR [0]).
+  apply AbsIR_wd.
+  apply eq_symmetric_unfolded; apply x_minus_x.
+  apply pfwdef.
+  apply cg_inv_unique_2.
+  apply AbsIR_eq_zero.
+  apply eq_symmetric_unfolded; eapply eq_transitive_unfolded.
+  + apply H3.
+  + apply AbsIR_minus.
 Qed.
+
+(**
+Any function that HAS a derivative is continuous.
+The proof uses the above lemma that any function that IS a derivative
+is continuous
+*)
 
 Lemma deriv_imp_contin_I : Derivative_I Hab' F G -> Continuous_I Hab'' F.
 Proof.

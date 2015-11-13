@@ -219,12 +219,18 @@ Variable n : nat.
 
 Variable P : Partition Hab n.
 
+(** [e] is the bound that we wish to have on 
+    on the difference between the integral value
+    and summation along some other partitions *)
 Variable e : IR.
 Hypothesis He : [0] [<] e.
 
-(* begin hide *)
+(** [d] is how close small partitions should be in order
+    to meet the bound [e] as mentioned above. Note that
+    the proof of continuity gives us this bound as
+    it assigns ranges in co-domain to ranges in domain *)
+
 Let d := proj1_sig2T _ _ _ (contF' e He).
-(* end hide *)
 
 Hypothesis HmeshP : Mesh P [<] d.
 
@@ -318,6 +324,11 @@ Section Well_Definedness.
 Variables F G : PartIR.
 Hypothesis contF : Continuous_I Hab F.
 Hypothesis contG : Continuous_I Hab G.
+(** If the integral values are different (separated), there 
+    must be a point (say [x]) where the values of the integrands
+    differ.
+*)
+
 
 Lemma integral_strext : Integral F contF [#] Integral G contG ->
  {x : IR | I x | forall Hx Hx', F x Hx [#] G x Hx'}.
