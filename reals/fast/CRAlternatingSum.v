@@ -24,7 +24,7 @@ Require Import Q_in_CReals.
 Require Import ArithRing.
 Require Export CRArith.
 Require Import CRIR.
-Require Import Bool.
+Require Import Coq.Bool.Bool.
 Require Import COrdAbs.
 Require Import Qordfield.
 Require Export Qmetric.
