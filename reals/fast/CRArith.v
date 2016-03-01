@@ -506,7 +506,7 @@ Proof with auto.
   apply CRle_refl.
  apply CRplus_le_r with (-x)%CR.
  CRring_replace (x + 'q - x) ('q)...
-Qed.
+Defined.
 
 Lemma CRle_not_lt (x y: CR): (x <= y)%CR <-> Not (y < x)%CR.
 Proof.

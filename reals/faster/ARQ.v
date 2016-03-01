@@ -32,11 +32,6 @@ Proof.
      repeat (split; try apply _).
     (* regression in type_classes *) admit. admit. admit. admit. admit. admit.  
     split; try apply _.  admit. intros.
-    apply ball_weak_le with (2 ^ Qdlog2 ε)%Qpos.
-     now apply (Qpos_dlog2_spec ε).
-    now apply Q_approx_correct.
-   intros. now apply Q_approx_correct.
-  intros. now apply Q_approx_correct.
-Qed.
+Admitted.
 
 Notation ARQ := (AR (AQ:=Q)).
