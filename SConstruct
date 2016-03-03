@@ -21,14 +21,14 @@ while nodes:
     nodes += glob.glob(node + '/*')
 
 includes = ' '.join(map(lambda x: '-I ' + x, dirs[1:]))
-Rs = '-R . CoRN -R math-classes/src MathClasses'
+Rs = '-R . CoRN -R math-classes MathClasses'
 coqcmd = 'coqc ${str(SOURCE)[:-2]} ' + Rs
 
 env['COQFLAGS'] = Rs
 
 for node in vs: env.Coq(node, COQCMD=coqcmd)
 
-mc_vs, mc_vos, mc_globs = env.SConscript(dirs='math-classes/src')
+mc_vs, mc_vos, mc_globs = env.SConscript(dirs='math-classes/')
 
 os.system('coqdep ' + ' '.join(map(str, vs+mc_vs)) + ' ' + includes + ' ' + Rs + ' > deps')
 ParseDepends('deps')
